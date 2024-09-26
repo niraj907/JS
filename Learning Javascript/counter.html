@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+#countLabel{
+    display:  block;
+    text-align: center;
+    font-size: 8em;
+    font-family:Arial, Helvetica, sans-serif ;
+}
+#btnContainer{
+    text-align: center;
+}
+.btn{
+    padding: 10px 20px;
+    font-size: 1.5em;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    border-radius:5px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+.btn:hover{
+    background-color: rgb(70, 69, 69);
+}
+</style>
+<body>
+    <label for="count" id="countLabel">0</label>
+<br>
+
+<div id="btnContainer">
+    <button id="decreaseBtn" class="btn">Decrease</button>
+    <button id="resetBtn" class="btn">Reset</button>
+    <button id="increaseBtn" class="btn">Increase</button>
+</div>
+
+
+    <script>
+
+const decreaseBtn = document.getElementById("decreaseBtn");
+const resetBtn = document.getElementById("resetBtn");
+const increaseBtn = document.getElementById("increaseBtn");
+const countLabel = document.getElementById("countLabel");
+let count = 0; // count variable garera store
+increaseBtn.onclick = function(){
+    count++;
+    countLabel.textContent = count;
+}
+
+decreaseBtn.onclick = function(){
+    count--;
+    countLabel.textContent = count;
+}
+resetBtn.onclick = function(){
+    count =0;
+    countLabel.textContent = count;
+}
+
+    </script>
+</body>
+</html>

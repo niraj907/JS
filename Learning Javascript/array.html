@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    
+    <script>
+        let fruits = ['apple','orange','banana'];
+        fruits[3] =  'coconut';// add garna milxa index bata access diyera or change garna milxa
+        fruits.push('mango') // add garna milxa
+        fruits.pop(); // last ko data delete hunxa
+        fruits.unshift('litch'); // add hunxa index 0 ma 
+       fruits.shift(); // index 0 ko data lai remove garxa 
+        console.log(fruits)
+        console.log(fruits[0])
+        console.log(fruits[1])
+        console.log(fruits[2])
+        console.log(fruits[3])
+console.log(`Total Furits: ${fruits.length}`);// total length
+console.log(`Index: ${fruits.indexOf('orange')}`) // to find the index of oranga
+        console.log('')
+        for(let i=0;i<=
+        3;i++){
+            console.log(fruits[i]);
+        }
+
+        console.log('')
+console.log('Reverse : ')
+        for(i =4-1; i>=0;i--){
+            console.log(fruits[i]);
+        }
+        console.log('')
+        console.log('Sort : ')
+        fruits.sort().reverse();
+        for(let fruit of fruits){
+            console.log(fruit);
+        }
+
+
+        
+    </script>
+</body>
+</html>

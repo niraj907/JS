@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add and change</title>
+</head>
+<style>
+    .box{
+border: 3px solid black;
+width: 100%;
+height: 125px;
+display: none;
+    }
+   
+    #fruits{
+        border: 3px solid black;
+font-size: 2rem;  
+    }
+</style>
+<body>
+
+    
+  
+<div id="box1" class="box">
+    <p>box1</p>
+</div>
+<div id="box2" class="box">
+    <p>box2</p>
+</div>
+<div id="box3" class="box">
+    <p>box3</p>
+</div>
+<div id="box4" class="box">
+    <p>box4</p>
+</div>
+<div id="box5" class="box">
+    <p>box5</p>
+</div>
+
+
+<!-- 
+without the id attribute
+<div  class="box">
+    <p>box1</p>
+</div>
+<div  class="box">
+    <p>box2</p>
+</div>
+<div  class="box">
+    <p>box3</p>
+</div>
+<div  class="box">
+    <p>box4</p>
+</div>
+<div  class="box">
+    <p>box5</p>
+</div> -->
+
+
+<!-- <ol id="fruits">
+ <li id="apple">apple</li>
+<li id="orange">orange</li>
+<li id="banana">banana</li>
+</ol> -->
+
+
+<!-- without the parent element id xaina  -->
+<ol id="fruits">
+<li>apple</li>
+<li>orange</li>
+<li>banana</li>
+</ol>
+
+<script>
+// step 1 ceate the element
+const new1 = document.createElement('h1');  
+
+// step 2 Add the attributes / properties
+new1.innerHTML = 'I like piza';
+new1.id = 'myH1';
+new1.style.textAlign = 'center';
+new1.style.color = 'orange';
+
+//step 3 append element to the Dom
+document.body.append(new1); // it will be box5 element after the last element
+//document.body.prepend(new1);// it wll box1 element before the first element
+
+document.getElementById('box1').append(new1)
+//document.getElementById('box1').prepend(new1)
+
+
+// with the id attribute we can do these ways:
+/*const box2 = document.getElementById('box5'); // it will box1 and box2 inside yo element display hunxa
+document.body.insertBefore(new1 , box2);
+*/
+
+// without the id attribute we can do these ways:
+/*
+const boxes = document.querySelectorAll('.box');
+document.body.insertBefore(new1 , boxes[1])
+*/
+
+
+// remove HTML Element
+//document.getElementById('box1').removeChild(new1)
+
+//----------------------------------------------------------------
+
+// example 2
+
+//step 1 create the element
+const newListItem = document.createElement('li');
+
+// step 2 and attribute / properties
+newListItem.innerHTML = 'cococnut';
+newListItem.id = 'cococnut';
+newListItem.style.backgroundColor = 'yellow';
+//newListItem.style.textAlign = 'center';
+
+// step 3 append element to DOM
+//document.body.append(newListItem);
+//document.body.prepend(newListItem);
+
+//document.getElementById('fruits').append(newListItem);
+//document.getElementById('fruits').prepend(newListItem);
+
+//const banana = document.getElementById('orange');
+//document.getElementById('fruits').insertBefore(newListItem, banana);
+
+
+const fruit = document.querySelectorAll('#fruits li');
+document.getElementById('fruits').insertBefore(newListItem , fruit[4])
+
+
+// remove HTML Element
+document.getElementById('fruits').removeChild(newListItem)
+</script>
+
+</body>
+</html>

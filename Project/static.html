@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    class MathUthic{
+static PI = 3.12;
+
+static getDaimeter(radius){ // static method
+return radius * 2;
+}
+static getCircumference(radius){ // static method
+return 2*this.PI *radius;
+}
+static getArea(length,breadth){
+    return length*breadth;
+}
+    }
+    console.log(MathUthic.PI);
+    console.log(`Value: ${MathUthic.getDaimeter(34)}`);
+    console.log(`Circumference: ${MathUthic.getCircumference(3)}`);
+
+    console.log(`Area of Circle: ${MathUthic.getArea(15,5)}`)
+
+
+
+
+    
+class User{
+static userCount = 0;
+constructor(username1){
+    this.username = username1;
+    User.userCount++;
+}
+static getUserCount(){
+ console.log(`There are ${User.userCount} user online`);   
+}
+
+sayHello(){
+    console.log('Hello Everyone!!!')
+}
+displayMessage(name){
+return `My Father name is ${this.username} \n My Mother name is ${name}`;
+}
+
+}
+const user1 = new User('Niraj');
+console.log(user1.username);
+console.log(User.userCount);
+
+const user2 = new User('Nitesh');
+console.log(user2.username);
+console.log(User.userCount)
+
+const user3 = new User('Chandra Sheakhar Chaudhary');
+console.log(user3.username);
+console.log(User.userCount);
+
+const user4 = new User('Mina kumari Chaudhary');
+console.log(user4.username);
+console.log(User.userCount);
+
+User.getUserCount();
+
+
+
+user3.sayHello();
+
+let name = 'Mina Kumari Chaudhary'
+const message = user3.displayMessage(name);
+console.log(message);
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+<!-- 
+    static keyword : 
+    That defines properties or method that belong to a class
+    itself rather than the objects created from that class
+    (class owns anything static, not the object)
+
+-->

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Selector</title>
+</head>
+<body>
+    <div id="demo"></div>
+<div class="para"></div>
+
+<div class="fruits">Apple</div>
+<div class="fruits">Orange</div>
+<div class="fruits">Banana</div>
+
+<h4> Root vegetable</h4>
+<ul>
+    <li>Beets</li>
+    <li>carrots</li>
+    <li>pottotsa</li>
+</ul>
+
+<h4> Non Roots Vegetables</h4>
+<ul>
+    <li>Broccoli</li>
+    <li>celery</li>
+    <li>Onion</li>
+</ul>
+
+
+    <script>
+        document.querySelector('#demo').innerHTML = 'hello world';
+        document.querySelector('.para').innerHTML = 'Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.';
+       
+
+const fruits = document.getElementsByClassName('fruits');
+
+// iterate over
+for (let fruit of fruits) {
+    fruit.style.backgroundColor = "Black";
+}
+
+// for loops
+for(let i=0; i<fruits.length; i++) {
+    fruits[i].style.color = "White";
+}
+
+
+Array.from(fruits).forEach(fruit=>{
+    fruit.style.textAlign = "center";
+});
+
+
+
+const h4Element = document.getElementsByTagName('h4');
+const liElement = document.getElementsByTagName('li');
+console.log(h4Element);
+//h4Element[0].style.backgroundColor ='Blue';
+
+for (let h4ele of h4Element) {
+    h4ele.style.backgroundColor = 'Red';
+}
+
+for(let liele of liElement){
+    liele.style.backgroundColor = 'Black';
+    liele.style.color = "White";
+    liele.style.textAlign = "center";
+}
+
+/* */
+const element = document.querySelector('ul');
+element.style.fontSize = '2rem';
+
+/* */
+const elements = document.querySelectorAll('li');
+elements.forEach( element => {
+    element.style.float = 'left';
+
+})
+
+
+    </script>
+</body>
+</html>
+
+
+<!-- 
+element selector - 
+                method used to target and manipulate
+                HTML elements. They allow we to selecet
+                one or more multiple HTML elements
+                from the DOM (Document Object Model)
+
+
+1. document.getElementByID() - element or null
+2. document.getElementClassName() - HTML Collection
+3. document.getElementByTagName() - HTML Collection
+4. document.querySelector() - element or null
+5. document.querySelectorAll() - NodeList
+
+-->

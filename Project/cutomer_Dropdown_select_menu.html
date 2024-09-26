@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Dropdown</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="customer_Dropdown.css">
+</head>
+<body>
+    <div class="container">
+        <div class="select-option">
+            <span>Select Country</span>
+            <i class="fa-solid fa-caret-up"></i>
+        </div>
+        <div class="list_search_container">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search" spellcheck="false" placeholder="Search">
+            </div>
+            <ul class="list">
+                <!-- List items will be populated by JavaScript -->
+            </ul>
+        </div>
+        
+    </div>
+
+
+ 
+    <script>
+        const countryList = [
+            "Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina",
+            "Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados",
+            "Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana",
+            "Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon",
+            "Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica",
+            "Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica",
+            "Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia",
+            "Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies",
+            "Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam",
+            "Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary",
+            "Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica",
+            "Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon",
+            "Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar",
+            "Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco",
+            "Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands",
+            "Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman",
+            "Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal",
+            "Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa",
+            "San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore",
+            "Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts & Nevis","St Lucia",
+            "St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan",
+            "Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia",
+            "Turkey","Turkmenistan","Turks & Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom",
+            "Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"
+        ];
+
+        const container = document.querySelector('.container');
+        const selectBtn = container.querySelector('.select-option');
+        const dropDownList = container.querySelector('.list_search_container');
+        const searchInput = container.querySelector('#search');
+        const list = dropDownList.querySelector('.list');
+
+        // Toggle dropdown on select button click
+        selectBtn.addEventListener('click', () => {
+            container.classList.toggle('active');
+        });
+
+        // Add country items to the list
+        function addCountries() {
+            list.innerHTML = ''; // Clear list items
+            countryList.forEach(country => {
+                let listItem = `<li class="list-items">${country}</li>`;
+                list.innerHTML += listItem;
+            });
+            addClickEvent();
+        }
+        addCountries();
+
+        // Add click event to each list item
+        function addClickEvent() {
+            list.querySelectorAll('li').forEach(listItem => {
+                listItem.addEventListener('click', () => {
+                    updateSelectedCountry(listItem);
+                });
+            });
+        }
+
+        // Update selected country and close the dropdown
+        function updateSelectedCountry(listItem) {
+            searchInput.value = '';
+            selectBtn.firstElementChild.innerHTML = listItem.innerHTML;
+            container.classList.remove('active');
+            addCountries();
+        }
+
+        // Filter country list based on search input
+        searchInput.addEventListener('keyup', () => {
+            let searchValue = searchInput.value.toLowerCase();
+            let filteredCountries = countryList.filter(country => {
+                return country.toLowerCase().startsWith(searchValue);
+            }).map(country => {
+                return `<li class="list-items">${country}</li>`;
+            }).join('');
+            list.innerHTML = filteredCountries;
+            addClickEvent();
+        });
+    </script>
+</body>
+</html>

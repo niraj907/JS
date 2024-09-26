@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+</head>
+<body>
+    
+
+<script>
+    // example on 1
+try{
+   
+    console.log(x);
+    // netwok error
+    // promise rejection
+    // security error
+}catch(Error){
+console.error(Error)
+console.log('hello');
+}
+finally{
+    // close files
+    // close connection
+    // release resource
+    console.log('finally')
+}
+console.log('You have reached the end!')
+
+// example on 2
+try{
+    const dividend =Number(window.prompt('Enter a dividend: ')); 
+    const divisor =Number(window.prompt('Enter a divisor: '));
+    
+    if(divisor == 0){
+        throw new Error('Divisor cannot be zero');
+    }
+    if(isNaN(dividend) || isNaN(divisor)){
+        throw new Error('Values must be a number');
+    }
+    const result  = dividend / divisor;
+    console.leg(result);
+}
+catch(error){
+    console.error(error);
+    console.log('example2')
+}
+</script>
+</body>
+</html>
+
+
+<!-- 
+Error : 
+    An object that is created to represent a problem that 
+    occurs often with user input or establishing a connection.
+
+
+    try{} -
+        Encloses code that might potentially cause an error
+    
+    catch{} -
+          Catch and handle any thrown error from try{}
+          
+    finally{} -
+            (optional) Always executes. Used mostly for
+            clean up code ex. close files, close connections
+            release resources.     
+-->

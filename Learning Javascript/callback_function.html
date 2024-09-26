@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback function</title>
+</head>
+<body>
+   
+    <h1 id="myH1"></h1>
+
+    <script>
+/*  Type : 1
+        function show(){
+            console.log("Hello World");
+        }
+        function message(callback){ // callback is a parameter of message function
+            console.log('Niraj')
+           callback(); // method call 
+        }
+      
+        message(show);
+
+        */
+
+        /* Type : 2
+
+        function show(a){
+            console.log("Hello World\n" + a);
+        } 
+        function message(a,callback){ // callback is a parameter of message function
+            console.log('Niraj')
+          
+           callback(a); // method call 
+        }
+      
+        message(101,show);
+*/
+
+
+/* Type : 3
+function message(callback){
+    var a = 101;
+    console.log('Niraj');
+    callback(a);
+}
+message(function(a){
+    console.log("Hello World\n" + a);
+});
+*/
+     
+/*Type : 4 */
+/*
+function message(callback){
+    var a = 101;
+    console.log('Niraj');
+    callback(a);
+}
+ using arrow function 
+message(a=>console.log("Hello World\n" + a)); */
+
+
+/*
+
+function message(callback){
+    console.log('Heyy');
+    let a = 101;
+    callback(a);
+    console.log('Hello');
+}
+message(
+    function show(a){
+        console.log('Hello world \n'+ a);
+    
+    }
+
+);
+console.log('I am student');
+*/
+
+
+/*
+hello(goodBye);
+
+function hello(callback){
+console.log('Hello');
+callback();
+}
+function goodBye(){  
+console.log('Good');
+}
+*/
+
+
+
+
+/*
+function sum(callback,x,y){
+    let result = x + y;
+    callback(result);
+}
+function displayConsole(result){
+    document.getElementById('myH1').innerHTML = `Sum: ${result}`;
+
+}
+sum(displayConsole,10,20);
+
+*/
+
+
+
+
+    </script>
+</body>
+</html>
+
+
+<!-- Notes
+
+Callback Function: 
+   - It can ve any fuction of anonymous function or arrow function 
+    passed into another function as an argument.
+
+  -  It is a function is passed as an argument to another functions.
+
+
+(1)    synchronous: It wait for each operation to complete
+       after that it executes the next operation. 
+
+(2)  Asynchronous: It never wait for each operation to compate
+      rather it executes all operation in the first GO only.    
+
+->

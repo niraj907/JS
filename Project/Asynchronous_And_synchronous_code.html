@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+
+  
+
+// asynchronous code
+
+function fun1(Callbacks){
+    setTimeout(()=>{
+        console.log('Task 4');
+        Callbacks();
+    },3000);
+}
+
+function fun2(){
+    console.log('Task 1');
+    console.log('Task 2');
+    console.log('Task 3');
+}
+
+fun1(fun2);
+    console.log('Task 5')
+   </script> 
+</body>
+</html>
+
+<!-- 
+synchronous code :
+
+                    EXecutes line by line consecutively in a 
+                    sequential manner code that waits for an operation to complete 
+                    
+Asynchronous code :  
+
+                    Allow multiple operations to be performed concurently without
+                    waiting for each operation to complete before moving on to the next one
+                    Doesnot block the execution flow and allows the program to continue
+                    (I/O operations , network request , fetching data )
+                    Handle with : Callbacks , promises , Async / Await 
+                    
+                    
+                    -->

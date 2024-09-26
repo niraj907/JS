@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <script>
+
+    class Animal{ // parent class
+        constructor(name1,age1,){ // using constructor an two parameter
+            this.name = name1;//name is a poperties
+            this.age = age1;
+}
+
+move(speed){ // method an one parameter
+   console.log(`The ${this.name} move at a speed of ${speed}mph.`);
+}
+        }
+
+class Rabbit extends Animal{ // child class 
+constructor (name1,age1,runSpeed1){ //call the constructor of parent class of Animal an add the one parameter also.
+    super(name1,age1); // using super class Calls the constructor of the parent class
+this.runSpeed = runSpeed1; // runSpeed is properties
+}
+run(){ 
+    console.log(`This ${this.name} can run.`);
+    super.move(this.runSpeed); // when we use the 'super.move' fuction, passing the runSpeed as the speed.
+}
+        }
+
+        class Fish extends Animal{
+            constructor (name1,age1,swimSpeed1){
+                super(name1,age1);
+                this.swimSpeed = swimSpeed1;
+                }
+                displayFish(){
+                    console.log(`This is a ${this.name}. I am ${this.age} years old.`);
+                }
+                swim(){ 
+                    console.log(`This ${this.name} can run`);
+                    super.move(this.swimSpeed);
+                }
+                
+        }
+
+        class Hawk extends Animal{
+            constructor (name1,age1,hawkSpeed1){
+                super(name1,age1);
+                this.hawkSpeed = hawkSpeed1;
+                }
+                fly(){ 
+                    console.log(`This ${this.name} can run`);
+                    super.move(this.hawkSpeed);
+                }
+        }
+
+        const rabbit = new Rabbit('rabbit',1,25);
+        const fish = new Fish('fish',2,12);
+        const hawk = new Hawk('hawk',3,50);
+      
+        /*
+fish.displayFish();
+ const speed = 14;
+ hawk.move(speed);
+ rabbit.move(speed);
+ fish.move(speed);
+ */
+
+rabbit.run();
+fish.swim();
+hawk.fly();
+
+
+    </script>
+</body>
+</html>
+
+
+<!-- 
+
+    super Keyword :
+
+    It is used in classes to call the constructor or
+    access the properties and methods of a parent (superclass)
+    this = this object
+    super = the parent
+
+-->
+
+
+

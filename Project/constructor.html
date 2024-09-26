@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div id="demo"></div>
+
+    <script>
+
+    function Person(){ // constructor function
+        this.name = 'John';
+        this.age =23;
+    }
+        
+    const person = new Person(); // Person is a Object
+    const demo = document.getElementById('demo');
+    demo.innerHTML = person.name;
+
+
+
+    function Car(make1, model1, year1, color1) {
+        this.make = make1; // 'make1' is a parameter, 'this.make' is a property
+        this.model = model1;
+        this.year = year1;
+        this.color = color1;
+        this.drive = function(){ 
+            console.log(`you are the drive ${this.model}`)
+        }
+    }
+    const car1 = new Car('Ford', 'Mustang', 2023, 'red'); // 'Ford', 'Mustang', 2023, 'red' are arguments
+   
+    console.log(car1.color); // Accessing the 'color' property of car1, which will output 'red'
+
+    const car2 = new Car('Chevrolet','Camaro',2025,'blue');
+    console.log(car2.color)
+
+    const car3 = new Car('Dodge','Charger',2026,'silver');
+    console.log(car3.color)
+
+
+    car3.drive();
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+<!--
+     Constructor =>  special method for defining the properties and
+                     methods of object                         
+
+
+
+
+
+-->

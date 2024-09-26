@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .product-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .product-form div {
+            margin-bottom: 10px;
+        }
+        .product-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .product-form input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .product-info {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-form">
+        <h2>Enter Product Details</h2>
+        <div>
+            <label for="name">Product Name:</label>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label for="price">Product Price:</label>
+            <input type="number" id="price">
+        </div>
+        <div>
+            <label for="discount">Discount (%):</label>
+            <input type="number" id="discount">
+        </div>
+        <button onclick="updateProduct()">Update Product</button>
+    </div>
+    <div class="product-info">
+        <h2>Product Information</h2>
+        <p id="productName">Name: </p>
+        <p id="productPrice">Price: </p>
+        <p id="productDiscount">Discount: </p>
+        <p id="productDiscountedPrice">Discounted Price: </p>
+    </div>
+    <script >
+        class Product {
+            constructor(name, price) {
+                this._name = name;
+                this._price = price;
+                this._discount = 0;
+            }
+        
+            // Getter for the name
+            get name() {
+                return this._name;
+            }
+        
+            // Setter for the name
+            set name(newName) {
+                if (typeof newName === 'string' && newName.length > 0) {
+                    this._name = newName;
+                } else {
+                    console.error('Invalid name');
+                }
+            }
+        
+            // Getter for the price
+            get price() {
+                return this._price;
+            }
+        
+            // Setter for the price
+            set price(newPrice) {
+                if (typeof newPrice === 'number' && newPrice >= 0) {
+                    this._price = newPrice;
+                } else {
+                    console.error('Invalid price');
+                }
+            }
+        
+            // Getter for the discount
+            get discount() {
+                return this._discount;
+            }
+        
+            // Setter for the discount
+            set discount(newDiscount) {
+                if (typeof newDiscount === 'number' && newDiscount >= 0 && newDiscount <= 100) {
+                    this._discount = newDiscount;
+                } else {
+                    console.error('Invalid discount');
+                }
+            }
+        
+            // Getter for the discounted price
+            get discountedPrice() {
+                return this._price * ((100 - this._discount) / 100);
+            }
+        
+            // Method to display product information
+            displayInfo() {
+                document.getElementById('productName').innerText = `Name: ${this.name}`;
+                document.getElementById('productPrice').innerText = `Price: $${this.price}`;
+                document.getElementById('productDiscount').innerText = `Discount: ${this.discount}%`;
+                document.getElementById('productDiscountedPrice').innerText = `Discounted Price: $${this.discountedPrice}`;
+            }
+        }
+        
+        // Create a new product instance
+        const product = new Product('Sample Product', 100);
+        
+        // Function to update product information
+        function updateProduct() {
+            const name = document.getElementById('name').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const discount = parseFloat(document.getElementById('discount').value);
+        
+            product.name = name;
+            product.price = price;
+            product.discount = discount;
+        
+            product.displayInfo();
+        }
+        
+        // Initial display of product information
+        product.displayInfo();
+        
+    </script>
+</body>
+</html>

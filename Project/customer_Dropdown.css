@@ -1,0 +1,92 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+    background-color: aqua;
+}
+.container{
+    margin: 100px auto; /*  top: 100px , right , left, button: auto*/
+    width: 300px;
+}
+.select-option{
+  border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.select-option i{
+    margin-left: 10rem;
+    text-align: center;
+    transition:  transform 0.3 linear;
+}
+.container.active .select-option i{
+    transform: rotate(-180deg);
+}
+
+span{
+    font-weight: bold;
+    color: rgb(117, 117, 117);
+}
+
+
+.list_search_container{
+ background-color: rgb(255, 255, 255);
+ margin-top: 15px;
+ padding: 20px;
+ border-radius: 10px;
+ display: none;
+
+}
+
+.container.active .list_search_container{
+    display: block;
+}
+
+.search-box{
+    position: relative;
+}
+.search-box i{
+    position:absolute;
+    left: 14rem;
+    top: 0.6rem;
+    font-size: 1.4rem;
+    text-align: center;
+    color: rgb(117, 117, 117);;
+}
+
+.search-box input{
+    height: 40px;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 5px;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid rgb(243, 239, 229);
+}
+
+.search-box input:focus{
+    border: 2px solid #44aabc;
+}
+.list{
+    margin-top: 10px;
+    max-height: 250px;
+    overflow: auto;
+    padding-left: 2px;
+}
+.list li{
+    font-size: 21px;
+    height: 50px;
+    padding: 10px 15px;
+}
+
+.list li:hover, li.selected{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+
+
+

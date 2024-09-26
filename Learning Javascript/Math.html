@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<p id="demo"></p>
+<p id="value"></p>
+<p id="multi"></p>
+<p class="max"></p>
+<p id="min"></p>
+    <script>
+        document.getElementById("demo").innerHTML =`Pie:  ${(Math.PI)}`;
+       let x = 4;
+       let y = 3;
+       let w = 4;
+       let z = x + y ;
+       document.getElementById('value').innerHTML = `Add: ${Math.floor(z)}`;
+       document.getElementById('multi').innerHTML = `Multi: ${Math.pow(x,y)}`
+        document.getElementsByClassName('max')[0].innerHTML = `Max Value: ${Math.max(x,y,w,z)}`
+        document.getElementById('min').innerHTML = `Min Value: ${Math.min(x,y,w,z)}`
+    </script>
+</body>
+</html>
+
+
+
+<!-- 
+Math - built in object that provides a collection of properties and method
+1. Math.round
+2. Math.floor
+3. Math.ceil
+4. Math.trunc 
+5. Math.pow()  - multiplication
+6. Math.sqrt() - square root
+7. Math.log()
+8. Math.max()
+9. Math.min()
+
+-->

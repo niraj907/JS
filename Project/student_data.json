@@ -1,0 +1,34 @@
+
+
+[
+    {
+        "ID" : 1,
+        "Name":  "Niraj Chaudhary",
+        "Age": "22",
+        "Email": " NirajChaudhary@gmail.com" ,
+        "Address": "Kupondole , lalitpur"
+    },
+    {
+        "ID" : 2,
+        "Name":  "Nitesh Chaudhary",
+        "Age": "26",
+        "Email": " NiteshChaudhary@gmail.com" ,
+        "Address": "Japan"
+    },
+    {
+        "ID" : 3,
+        "Name":  "Chandra Shrekhar Chaudhary",
+        "Age": "58",
+        "Email": " ChandraShrekharChaudhary@gmail.com" ,
+        "Address": "Japan"
+    },
+    {
+        "ID" : 4,
+        "Name":  "Mina Chaudhary",
+        "Age": "44",
+        "Email": " MinaChaudhary@gmail.com" ,
+        "Address": "Japan"
+    }
+    
+    
+]

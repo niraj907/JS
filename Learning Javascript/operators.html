@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<p id="firstName"></p>
+<p id="lastName"></p>
+
+    <script>
+        let firstName = window.prompt("Enter the first name ");
+        let lastName = window.prompt("Enter the Last name ");
+        document.getElementById('firstName').innerHTML = `FirstName: ${firstName}`;
+        document.getElementById('lastName').innerHTML = `LastName: ${lastName}`;
+        
+    </script>
+</body>
+</html>
+
+
+<!-- Important  
+    operator precedence
+1. parenthesis()
+2. expontents
+3. multiplication & division & module 
+4 . additoon & subtraction -->

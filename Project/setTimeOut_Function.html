@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#btn__start{
+    margin-top: 3rem;
+}
+
+        .loader {
+            display: none;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 50px;
+            height: 50px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+        }
+        
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h2>How To Create A Loader</h2>
+
+    <div class="loader" id="loader"></div>
+
+    <button id="btn">Click</button>
+    <div id="para"></div>
+    <button onclick="startTimer()" id="btn__start">START</button>
+    <button onclick="clearTimer()" id="btn__start_1">Clear</button>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const para = document.getElementById('para');
+        const loader = document.getElementById('loader');
+
+        btn.addEventListener('click', () => {
+            // Show the loader
+            loader.style.display = 'block';
+            para.textContent = ''; // Clear the previous message, if any
+            
+            setTimeout(() => {
+                // Hide the loader
+                loader.style.display = 'none';
+
+                // Show the message
+                para.textContent = 'Hello Niraj ';
+                para.style.color = 'red';
+            }, 3000);
+        });
+
+        /*  
+     
+            function sayHello(){
+                console.log("Hello World");
+            }
+            setTimeout(sayHello,3000);
+            
+        */
+let timeOutId;
+       function startTimer()  {
+         timeOutId =  setTimeout( ()=>{
+            alert('Some has been mistake')
+            console.log("Do you want to login?");
+           },3000)
+        }
+
+        function clearTimer(){
+            clearTimeout(timeOutId)
+            console.log('hello message')
+        }
+    </script>
+</body>
+</html>
+
+
+   
+        

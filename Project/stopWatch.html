@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch program</title>
+    <style>
+      #stopwatch {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #title_stopwatch {
+        text-align: center;
+        font-size: 4rem;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5rem;
+      }
+
+      #display {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+      }
+      #controls button {
+        margin: 10px;
+        font-size: 2rem;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: aliceblue;
+        font-weight: bold;
+        transition: background-color 0.5s ease;
+      }
+
+      #start_btn {
+        background-color: green;
+      }
+      #start_btn:hover {
+        background-color: rgba(0, 128, 0, 0.653);
+      }
+      #stop_btn {
+        background-color: red;
+      }
+      #stop_btn:hover {
+        background-color: rgba(255, 0, 0, 0.676);
+      }
+
+      #reset_btn {
+        background-color: orange;
+      }
+      #reset_btn:hover {
+        background-color: rgba(255, 166, 0, 0.691);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stopwatch">
+      <h1 id="title_stopwatch">StopWatch</h1>
+      <div class="container">
+        <div id="display">00:00:00:00</div>
+        <div id="controls">
+          <button id="start_btn" onclick="start()">Start</button>
+          <button id="stop_btn" onclick="stop()">Stop</button>
+          <button id="reset_btn" onclick="reset()">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const display = document.getElementById("display");
+      let timer = null;// This will hold the interval ID, which is used to stop the timer later.
+
+      let startTime = 0;
+      let elapsedTime = 0;
+      let running = false; // Boolean to check if the stopwatch is running or not.
+
+      function start() {
+        if (!running) { // This checks if running is false - not running
+          startTime = Date.now() - elapsedTime;
+          timer = setInterval(update, 10);// every 10 milliseconds update
+          running = true; // the stopwatch is now running.
+        }
+      }
+
+      function stop() {
+        if (running) {
+          clearInterval(timer);
+          elapsedTime = Date.now() - startTime;
+          running = false;  //the stopwatch is now stopped.
+        }
+      }
+
+      function reset() {
+        clearInterval(timer);// Stops the timer by clearing the interval clearInterval(timer).
+        startTime = 0;
+        elapsedTime = 0;
+        running = false;
+        display.textContent = '00:00:00:00'; // Resets the display 
+      }
+
+      function update() {
+        const currentTime = Date.now();
+        elapsedTime = currentTime - startTime;
+
+        let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+        let minutes = Math.floor((elapsedTime / (1000 * 60)) % 60);
+        let seconds = Math.floor((elapsedTime / 1000) % 60);
+        let milliseconds = Math.floor((elapsedTime % 1000) / 10);
+
+        hours = String(hours).padStart(2, '0');
+        minutes = String(minutes).padStart(2, '0');
+        seconds = String(seconds).padStart(2, '0');
+        milliseconds = String(milliseconds).padStart(2, '0');
+
+        display.textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
+      }
+    </script>
+  </body>
+</html>

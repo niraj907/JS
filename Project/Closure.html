@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    
+<script>
+
+// exmaple no 1
+
+    function outer(){
+        console.log('hello');
+        let message = 'hello world'; // private variable
+        function inner(){
+            console.log('hey')
+            console.log(message); // closure function
+        }
+        inner();
+    }
+    outer();
+
+    // exmaple no 2
+    function createCount(){
+        let count = 0; // private variable
+    function increment(){
+        count++;
+    console.log(`Count increase to ${count}`);
+    }
+
+    function getCount(){
+        return count;
+    }
+
+return {increment,getCount}; // returning the oject from the createcout
+}
+const counter =  createCount();
+counter.increment(); // calls the increment method on the counter object.
+counter.increment();
+
+console.log(`The current count is ${counter.getCount()}`)
+
+// example 3
+
+function outerFun(){
+    var j = 'J local variable of Outer Function'; // local scope
+    console.log(j)
+    function innerFun(){
+        var  k = 'K is a local variable of inner Function'
+        console.log(j)  // it is a closure function because it  accss the outer fun inside the innerfun
+        console.log(k)
+        }
+        innerFun();
+        console.log(j)
+    /*
+    console.log(k)// outer function chaii inner function laii acess garna mila error 
+    */  
+    
+    }
+outerFun()
+
+
+function createGame(){
+    let scope = 0;// private variable
+    function innerScope(point){
+     scope = scope + point; // scope += points; same
+     console.log(`+${scope}pts`)
+    }
+    function decreaseScope(point){
+     scope = scope - point; // scope += points; same
+     console.log(`${scope}pts`)
+    }
+
+    function getScope(){
+        return scope;
+    }
+    return {innerScope,decreaseScope,getScope};
+    scope = 10000000000000; // it is not working of closure function
+}
+
+const game = createGame();
+game.innerScope(2) // aceess the game through innerscope
+game.innerScope(4)
+game.decreaseScope(9)
+console.log(`The final scope is ${game.getScope()}pts`)
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+<!-- 
+closure  : 
+            A function defined the inside of another function
+            the inner functions has access to the variable 
+            and scope of the outer functions.
+            Allow for private variable and stae maintaince 
+            User frequency in JS frameworks : React, Vue , Angular
+
+-->

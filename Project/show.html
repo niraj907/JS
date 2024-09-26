@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Toggle</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      i {
+        position: relative;
+        left: -30px; /* Adjust position to align with the input field */
+        top: 0.5px;
+        color: rgb(148, 147, 147);
+        font-size: 15px;
+        cursor: pointer;
+      }
+      img {
+        width: 300px;
+        height: 200px;
+      }
+
+      .container {
+        margin-top: 30px;
+      }
+      img {
+        margin: 15px 0;
+      }
+      button {
+        font-size: 1.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="password" placeholder="Enter the password" id="password" />
+    <i class="fa-solid fa-eye-slash" id="fa-eye-slash"></i>
+
+    <div class="container">
+      <img
+        id="my_img"
+        src="https://blog.thomascook.in/wp-content/uploads/2017/11/Untitled-designfs-1.png"
+        alt="image"
+      />
+      <br />
+      <button id="mybtn">Hide</button>
+    </div>
+    <script>
+      const password = document.getElementById("password");
+      const icon = document.getElementById("fa-eye-slash");
+
+      icon.addEventListener("click", () => {
+        if (password.type === "password") {
+          password.type = "text";
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+        } else {
+          password.type = "password";
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+        }
+      });
+
+      const mybtn = document.getElementById("mybtn");
+      const my_img = document.getElementById("my_img");
+
+      mybtn.addEventListener("click", () => {
+        if (my_img.style.visibility === "hidden") { // This checks if the image is currently not displayed 
+          my_img.style.visibility = "visible";
+          mybtn.textContent = "Hide";
+        } else {
+          my_img.style.visibility = "hidden";
+          mybtn.textContent = "Show";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+</head>
+<body>
+    <style>
+       #clock-container{
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        font-size: 6rem;
+        font-weight: bold;
+        margin:15rem auto;
+       } 
+    </style>
+    <div id="clock-container">
+            <div id="clock"> 00 : 00 : 00</div>
+    </div>
+
+
+    <script>
+
+        function updateClock(){
+            let currentTime = new Date();
+            let hours = currentTime.getHours();
+            const meridiem = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;  // Adjust for 12-hour format and handle midnight
+            const minutes = currentTime.getMinutes().toString().padStart(2,`0`);
+            const seconds = currentTime.getSeconds().toString().padStart(2,`0`);
+            const timeString = `${hours.toString().padStart(2,0)} : ${minutes} : ${seconds} ${meridiem}`;
+            document.getElementById('clock').innerText = timeString;
+        }
+        updateClock();
+        setInterval(updateClock,1000);
+
+    </script>
+</body>
+</html>

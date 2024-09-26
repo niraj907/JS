@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <label for="age">Enter your age </label><br><br> 
+   <input type="text" placeholder="fill your age" id="myText"><br><br>
+   <button id="mySubmit" type="submit"> sumit</button>
+<p id="resultElement"></p>
+
+<script>
+    const myText = document.getElementById('myText');
+    const mySubmit = document.getElementById('mySubmit');
+    const resultElement = document.getElementById('resultElement');
+let age;
+mySubmit.onclick = function(){
+  age = myText.value;
+  age = Number(age);
+  if(age >= 18){
+    resultElement.innerHTML = "You can vote";
+  }else{  
+    resultElement.innerHTML = "You can't vote";
+  }
+}
+    
+</script>
+</body>
+</html>

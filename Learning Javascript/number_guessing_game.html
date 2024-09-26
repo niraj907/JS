@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+</head>
+<body>
+    <script>
+        const minNum = 1; // min number start with 1 
+        const maxNum = 100; // max number end with 100
+        const answer = Math.floor(Math.random()*(maxNum-minNum+1)+ minNum); // generating the random number an store in answer
+
+let attempts = 0; // attempts assign to 0 an store in attempts
+let guess; // variable declare
+let running = true; // using boolean true
+
+while(running){ // using while loop
+
+guess =parseInt (window.prompt(`Guess a number between ${minNum} - ${maxNum}`)); // userinput from number have to put
+
+if (isNaN(guess)) { // if there is any character or symbol they alert these message
+   window.alert('please enter a valid number not a character');
+}else if(guess < minNum || guess > maxNum ){ // if the number inside the bound of  between guess < minNum || guess > maxNum they will show these message
+    window.alert('please enter a valid number!!!');
+
+}else{
+    attempts ++; // attemps will me increamement 
+    if(guess < answer){ // if the guess number will small than answer it will show the alert message
+        window.alert('Too low! Try Again');
+    }
+    else if(guess > answer){  // if the guess number will greater than answer it will show the alert message
+        window.alert('Too high! Try Again');
+    }
+    else{
+        window.alert(`Correct! The answer was ${answer}. It took you ${attempts} attempts.`)// if the guess number match it show these .
+    
+        running = false; // close running
+    }
+}
+}
+
+
+    </script>
+</body>
+</html>

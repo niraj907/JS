@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeList</title>
+</head>
+<style>
+    .mybtn{
+        font-size: 4rem;
+        margin: 10px;
+        border:3px solid rgb(0, 0, 0);
+        border-radius: 5px;
+        padding: 10px 15px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(179, 178, 177);
+    }
+</style>
+<body>
+    
+<button class="mybtn">Button 1</button>
+<button class="mybtn">Button 2</button>
+<button class="mybtn">Button 3</button>
+<button class="mybtn">Button 4</button>
+
+
+
+<script>
+    let button = document.querySelectorAll('.mybtn');
+
+    
+    button.forEach(element =>{
+        element.style.backgroundColor = 'orange';
+        element.style.color = 'white';
+        element.textContent += `😃`;
+    })
+
+    /*
+    //Using event handlers
+
+button.forEach(element =>{
+    element.addEventListener('click',event=>{
+        event.target.style.backgroundColor = 'red';
+    })
+})
+
+
+// using mouseOver
+
+button.forEach(element =>{
+    element.addEventListener('mouseover',event=>{
+        event.target.style.backgroundColor = `rgb(252, 161, 30)`;
+    })
+})
+// using mouseOut
+
+button.forEach(element =>{
+    element.addEventListener('mouseout',event=>{
+        event.target.style.backgroundColor = `rgb(252, 161, 60)`;
+    })
+})
+*/
+
+
+/*
+
+// step1
+const  newbtn = document.createElement('button');
+
+// step2
+newbtn.textContent = 'Button 5😈';
+newbtn.classList = 'mybtn';
+
+// step3
+
+document.body.appendChild(newbtn);
+
+button = document.querySelectorAll('.mybtn');
+console.log(button);
+
+*/
+
+button.forEach(element =>{
+element.addEventListener('click',event =>{
+event.target.remove();
+button = document.querySelectorAll('.mybtn');
+console.log(button);
+    })
+})
+
+</script>
+</body>
+</html>
+
+
+<!-- 
+Notes
+
+NodeList : 
+            Static collection of HTML elements by (id, class, element)
+            can be created by using querySelectorAll() function
+            Similar to an array, but no (map, filter, reduce)
+            NodeList won't update to automaticallly reflect chage
+
+
+-->

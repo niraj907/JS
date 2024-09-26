@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <label for="">Enter your favourite days: </label> 
+ <input type="text" id="days" >
+ <br> <br>
+ <button id="btn">Submit</button> <br>
+<p id="value" style="color: rgb(154, 154, 154);"></p>
+
+<script>
+    const days = document.getElementById('days');
+    const btn = document.getElementById('btn');
+    const value = document.getElementById('value');
+    let weekly;
+    btn.onclick = function(){
+    
+    /*
+    weekly = days.value;
+    weekly = Number(weekly);
+    if (weekly == 1) {
+        value.innerHTML = `Your favourite day ${weekly} is Sunday.`;
+    } else if(weekly == 2){
+        value.innerHTML = `Your favourite day ${weekly} is Mondays.`;
+    }else if(weekly == 3){
+        value.innerHTML = `Your favourite day ${weekly} is Tuesdays.`;
+    }else if(weekly == 4){
+        value.innerHTML = `Your favourite day ${weekly} is Wednesday.`;
+
+    }else if(weekly == 5){
+        value.innerHTML = `Your favourite day ${weekly} is Thursday.`;
+    } else if(weekly == 6){
+        value.innerHTML = `Your favourite day ${weekly} is Friday.`;
+    } else if(weekly == 7){
+        value.innerHTML = `Your favourite day ${weekly} is Saturday.`;
+    } else {
+        alert(`Your favourite day is not valid ${weekly}`);
+        value.innerHTML = ''; // Clear the value
+    }
+    */ 
+    weekly = days.value;
+    switch(weekly){
+        case '1':
+        value.innerHTML = `Your favourite day ${weekly} is Sunday.`;
+        break;
+        case '2':
+        value.innerHTML = `Your favourite day ${weekly} is Monday.`;
+        break;
+        case '3':
+        value.innerHTML = `Your favourite day ${weekly} is Tuesday.`;
+        break;
+        case '4':
+        value.innerHTML = `Your favourite day ${weekly} is Wednesday.`;
+        break;
+        case '5':
+        value.innerHTML = `Your favourite day ${weekly} is Thursday.`;
+        break;
+        case '6':
+        value.innerHTML = `Your favourite day ${weekly} is Friday.`;
+        break;
+        case '7':
+        value.innerHTML = `Your favourite day ${weekly} is Saturaday.`;
+        break;
+        default:
+        alert(`Your favourite day is not valid ${weekly}`);
+       
+        value.innerHTML = ''; // Clear the value
+    } 
+
+    }
+
+</script>
+</body>
+</html>

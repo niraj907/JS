@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key Events</title>
+    <style>
+      .container {
+        display: none;
+      }
+      #myBOX {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 140px auto;
+        font-size: 7.8rem;
+        background-color: orange;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Key Event</h1>
+      <label for="Name">Name: </label>
+      <input type="text" id="mytext" />
+    </div>
+
+    <div id="myBOX">🤭 </div>
+    <script>
+        
+        const myBOX = document.getElementById("myBOX");
+/*
+        document.addEventListener("keydown", event => {
+          myBOX.textContent = "🥀";
+          myBOX.style.backgroundColor = 'red';
+        });
+    
+    
+    document.addEventListener("keyup", event => {
+        myBOX.textContent = "🤭";
+        myBOX.style.backgroundColor = 'blue';
+    });
+*/
+
+    const moveAmount = 10;
+    let x =0;
+    let y =0;
+
+    document.addEventListener('keydown', event => {
+    if (event.key.startsWith('Arrow')){
+
+        event.preventDefault();
+        switch (event.key){
+            case 'ArrowUp':
+            y -= moveAmount;
+            break;
+            case 'ArrowDown':
+            y -= moveAmount;
+            break;
+            
+            case 'ArrowLeft':
+            x -= moveAmount;
+            break;
+            
+            case 'ArrowRight':
+            y -= moveAmount;
+            break;
+            
+        }
+        myBOX.style.top = `${y}px`;
+        myBOX.style.top = `${x}px`;
+    }
+        
+    })
+    
+
+      const text = document.getElementById("mytext");
+      function key(e) {
+        console.log(
+          `key ${e.type} ${e.keyCode} ${String.fromCharCode(e.keyCode)}`
+        ); // Log the event object
+      }
+      text.addEventListener("keydown", key, false);
+      text.addEventListener("keypress", key, false);
+      text.addEventListener("keyup", key, false);
+    </script>  
+  </body>
+</html>
+
+
+<!-- 
+notes:
+
+eventListener 
+                Listen for specific events to create interactive web pages
+                events : keydown , keypress , keyup ,
+                document.addEventListener(event,callback) 
+                <script>
+       
+        
+                -->

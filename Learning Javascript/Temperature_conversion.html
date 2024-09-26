@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Conversion</title>
+  </head>
+  <body>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(218, 218, 218);
+    }
+    h1{
+        color: blue;
+    }
+    #container{
+position: relative;
+top: 7em;
+    }
+    form{
+        background-color: rgb(255, 255, 255); 
+        text-align: center;
+        max-width: 350px;
+        margin:auto;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow:5px 5px 15px black;
+    }
+    #text_box{
+        width: 50%;
+        text-align: center;
+        font-size: 1.5em;
+        border: 2px solid rgb(64, 64, 64);
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+    label{
+        font-size: 1.5em;
+        font-weight: bolder;
+       
+    }
+
+    button{
+        margin-top: 18px;
+        background-color: rgba(0, 0, 255, 0.551);
+        color: white;
+       border: none;
+        border-radius: 5px;
+        font-size: 1.5em;
+       padding: 8px 20px; 
+       cursor: pointer;
+    }
+    button:hover{
+        background-color: blue;  
+    }
+
+    #result{
+        font-size: 1.7em;
+        font-weight: bold;
+
+    }
+</style>
+
+    <form id="container">
+      <h1>
+        Temperture conversion:
+      </h1>
+      <input type="number" id="text_box" value="0" /> <br />
+      <input type="radio" id="celsius_fahrenheit" name="unit" />
+      <label for="celsius_fahrenheit">Celsius &#8594; Fahrenheit</label> <br />
+
+      <input type="radio" id="fahrenheit_celsius" name="unit" />
+      <label for="fahrenheit_celsius">Fahrenheit &#8594; Celsius</label><br/>
+
+      <button type="button" onclick="convert()">Click</button>
+
+      <p id="result"></p>
+    </form>
+
+    <script>
+        function convert() {
+            var number = parseFloat(document.getElementById("text_box").value); // local variable name is nuumber
+            var to_fahrenheit = document.getElementById('celsius_fahrenheit');// local variable  name is to_fahrenheit
+            var to_celsius = document.getElementById('fahrenheit_celsius'); // local variable  name is to to_celsius
+            var result = document.getElementById('result'); // local variable   name is yo be result 
+            var Result; // variable declaring
+        
+            if (to_fahrenheit.checked) {
+                Result = (number * 9 / 5) + 32; // using the formula of fahrenheit
+                result.innerHTML = `${Result.toFixed(2)}°F`; //  display in a result
+            } else if (to_celsius.checked) {
+                Result = (number - 32) * 5 / 9; // using the formula of celsius
+                result.innerHTML = `${Result.toFixed(2)}°C`; //  display in a result
+            } else {
+                alert("Please select a radio"); // alert message
+                result.innerHTML = '';
+            }
+        }
+        
+</script>
+</body>
+</html>

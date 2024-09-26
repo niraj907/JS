@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nested Objects</title>
+</head>
+<body>
+    
+<script>
+// example 1
+
+const person = { // oject 
+    fullName : 'Niraj Chaudhary', // fullname is a properties
+age : 21,
+isStudent : true,
+hobbies : ['karate','ellyfishing', 'cooking'], // hobbies array
+address :{ // another object 
+    street : '124 Conch St.' , // strree is a properties
+    city : 'Bikini Bottom',
+    country: 'Int. Water'
+}
+}
+
+for (const properties in person.address){
+    console.log(person.address[properties]);
+}
+
+
+// example 2
+class Person2{
+    constructor(name1,age1, ...address){
+        this.name = name1;
+        this.age = age1;
+        this.address = new Address(...address);
+    }
+}
+
+class Address{
+    constructor(street1,city1,country1){
+this.street = street1;
+this.city = city1;
+this.country = country1;
+    }
+}
+
+const person3 = new Person2('Niraj Chaudhary' , 23, '123 Conch St.' , 
+                                                    'Bikini Bottoms',
+                                                     'Int. Waters');
+                                                     
+const person4 = new Person2('Nitesh Chaudhary' , 27, '127 Conch St.' , 
+                                                    'Bikini Bottoms',
+                                                     'Int. Waters');
+const person5 = new Person2('Mina Chaudhary' , 45, '145 Conch St.' , 
+                                                    'Bikini Bottoms',
+                                                     'Int. Waters');
+
+console.log(`Name: ${person3.name}`)
+console.log(`Age: ${person3.age}`)
+console.log('\n')
+for(const element in person3.address){
+    console.log(person3.address[element])
+}
+console.log('\n')
+console.log(`Street: ${person3.address.street}`)
+console.log(`City: ${person3.address.city}`)
+console.log(`Country: ${person3.address.country}`)
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
+
+
+<!-- 
+
+nested object 
+- Objects inside of other Objects
+- Allows we to represent more complex data structures 
+Child Object is enclosed by a Parent Object
+
+- Person {Address{} , ContactInfo {}}
+- ShoppingCart{Keyboard{}, Mouse{} , Monitor{}}
+
+
+-->

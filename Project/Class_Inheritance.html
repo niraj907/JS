@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+    <script>
+
+        /*Example No 1*/
+
+//parent class
+class Person { // class name should be always Uppercase
+    constructor(name1){
+this.name = name1;
+    }
+    greet(){
+        console.log(`Hello ${this.name}`);
+    }
+}
+
+class Stusent extends Person{
+}
+let student1 = new Stusent('Niraj');
+student1.greet();
+
+
+ /*Example No 2*/
+
+// parent class
+class Person1{
+    constructor(name2){
+        this.name = name2;
+    }
+    displayMess(){ // method
+console.log(`My name is ${this.name}`);
+    }
+    specialMessage(message){ // method using one parameter
+return `Hello ${this.name}. ${message}`;
+    }   
+}
+
+class SomeSpecialMess extends Person1{ // child class
+    constructor(name2){
+     super(name2) ; // Calls the constructor of the parent class
+     console.log('Hello Everyone!!!');  
+    }
+}
+
+let SomeMessage = new SomeSpecialMess('Niraj'); // Creating an Instance
+SomeMessage.displayMess(); // method call
+
+let message = 'How are You my friend';
+let text = SomeMessage.specialMessage(message);
+console.log(text);
+
+
+
+
+class Animal{
+    alive = true; // boolean
+    
+    eat(){ // method
+        console.log(`This ${this.name} is eating`);
+    }
+    sleep(){ //method
+        console.log(`This ${this.name} is sleeping`);
+    }
+}
+class Rabbit extends Animal{
+name = 'rabbit'; // properties
+
+run(){ // method
+    console.log(`This ${this.name} is running`);
+}
+}
+class Fish extends Animal{ 
+    name = 'fish';
+
+    swim(){
+        console.log(`This ${this.name} is swimming`); 
+    }
+}
+
+class Hawk extends Animal{
+    name = 'hawk';
+
+    fly(){
+        console.log(`This ${this.name} is flying`);
+    }
+}
+
+const rabbitMess = new Rabbit();
+const fishMess = new Fish();
+const hawkMess = new Hawk();
+console.log(rabbitMess.alive);
+rabbitMess.eat();
+rabbitMess.sleep();
+rabbitMess.run();
+
+
+
+
+    </script>
+
+
+</body>
+</html>
+
+<!--     
+Class Inheritance 
+=> Using class inheritance, a class can inherit all the methods
+ and properties of another class.
+=> we use the 'extends' keyword. 
+=> It is helps with code reusability
+
+-->

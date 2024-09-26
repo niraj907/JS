@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<p id="demo"></p>
+<p id="Value"></p>
+<p id="Capial"></p>
+
+    <script>
+
+        /*
+        let number = [1,2,3,4,5];
+        number.forEach(square);
+        number.forEach(display);
+        
+        function double(element, index, array){
+            array[index] = element * 2;
+        }
+        function trible(element, index, array){
+            array[index] = element * 3;
+        }
+        function square(element, index, array){
+        array[index] = Math.pow(element,2)
+        }
+        
+        function display(element,index){
+            document.getElementById('demo').innerHTML += `${index} ${':'} ${element + '<br>'}`;
+        }
+        */
+
+/*
+        var a = ['sanjay','aman','karan','nitesh'];
+        a.forEach(studentName);
+        function studentName(value,index){
+            document.getElementById('Value').innerHTML += `${index} ${':'} ${value}  ${'<br>'}`;
+    
+            }
+            */
+
+            let fruits = ['apple','orange','mango','litch','banana'];
+            fruits.forEach(lowercase);
+            fruits.forEach(capialize);
+            fruits.forEach(fruitName);
+
+            function fruitName(element){
+                document.getElementById('Value').innerHTML += `${element.toUpperCase()} ${'<br>'}`;
+            }
+        
+            function lowercase(element){
+                document.getElementById('demo').innerHTML += `${element.toLowerCase()} ${'<br>'}`;
+                demo.style.color = 'green';
+            }
+
+            function capialize(element){
+                document.getElementById('Capial').innerHTML += `${element.charAt(0).toUpperCase() + element.slice(1)} ${'<br>'}`;
+                Capial.style.color = 'orange';
+            }
+    </script>
+</body>
+</html>

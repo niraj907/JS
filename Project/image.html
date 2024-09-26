@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load an Image from URL and Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 80%;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="Enter the image URL" id="image">
+    <button id="btn">Load Image</button>
+    <div id="error" class="error"></div>
+
+    <script>
+        const image = document.getElementById('image');
+        const btn = document.getElementById('btn');
+        const errorDiv = document.getElementById('error');
+
+        btn.addEventListener('click', () => {
+            const url = image.value;
+            if (url) {
+                const img = document.createElement('img');
+                img.src = url;
+                img.onload = () => {
+                    document.body.appendChild(img);
+                    errorDiv.textContent = '';  // Clear any previous error message
+                };
+                img.onerror = () => {
+                    errorDiv.textContent = 'Failed to load image. Please check the URL and try again.';
+                };
+            } else {
+                errorDiv.textContent = 'Please enter a valid image URL.';
+            }
+        });
+    </script>
+</body>
+</html>

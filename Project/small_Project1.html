@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .square_box_plus {
+           max-width: 30rem;
+            height: 5rem;
+            border: 2px solid rgb(167, 165, 165);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .square_heading {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .square_para{
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(155, 154, 154);
+            font-size: 1.2rem;
+        }
+
+        .icon_square {
+            position: relative;
+        }
+        .icon_square i:hover{
+color: gray;
+        }
+
+        .square_box_minus {
+            margin-top: 10px;
+            width: 30rem;
+            height: 5rem;
+            border: 2px solid rgb(167, 165, 165);
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="square_box_plus" id="plusBox">
+            <div class="square_heading">
+                Hello
+            </div>
+            <div class="icon_square">
+                <i class="fa-solid fa-plus" id="iconOpen"></i>
+            </div>
+        </div>
+
+        <div class="square_box_minus" id="minusBox">
+            <div class="square_para">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, non?</p> 
+            </div>
+            <div class="icon_square">
+                <i class="fa-solid fa-minus" id="iconClose"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const plusBox = document.getElementById('plusBox');
+        const minusBox = document.getElementById('minusBox');
+        const iconOpen = document.getElementById('iconOpen');
+        const iconClose = document.getElementById('iconClose');
+
+        iconOpen.addEventListener('click', () => {
+            minusBox.style.display = 'flex';
+        });
+
+        iconClose.addEventListener('click', () => {
+            minusBox.style.display = 'none';
+            plusBox.style.display = 'flex';
+        });
+    </script>
+</body>
+</html>

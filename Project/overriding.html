@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+class Employee{
+    login(){
+        console.log(`Employee has logged in`);
+    }
+    logout(){
+        console.log(`Employee has logged out`);  
+    }
+    requestLeaves(leaves){
+        console.log(`Employee has requested ${leaves} leaves - auto approved`)
+    }
+}
+class Programmer extends Employee{
+
+requestCoffee(x){
+    console.log(`Employee has request ${x} coffees.`)
+}
+requestLeaves(leaves){
+ /*   console.log(`Employee has requested ${leaves + 1} leaves (one extra)`)*/
+ super.requestLeaves(9);
+ console.log('one exxtra is granted');
+}
+}
+
+let e = new Programmer();
+e.login()
+e.requestLeaves(6);
+e.requestCoffee(4)
+    </script>
+</body>
+</html>
+
+

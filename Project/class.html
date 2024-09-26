@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes</title>
+</head>
+<body>
+    
+
+<script>
+
+class Product{
+    constructor(name1,price1){
+        this.name =name1;
+        this.price = price1;
+    }
+    displayProdut(){ // method displayProduct()
+        console.log(`Produt: ${this.name}`);
+        console.log(`Price: $${this.price.toFixed(2)}`);
+    }
+
+    calcuated(salesTax){ // method calcuated() an one parameter
+        return this.price + (this.price * salesTax);
+    }
+}
+
+const product = new Product('Shirt',34.4); 
+product.displayProdut(); 
+
+const product2 = new Product('T-shirt',45.0);
+product2.displayProdut();
+
+const product3 = new Product('Pants',250);
+product3.displayProdut();
+
+const salesTax  = 345
+const calcuatedNum = product3.calcuated(salesTax);
+console.log(`Total SalesTax: ${calcuatedNum}`);
+</script>
+
+</body>
+</html>

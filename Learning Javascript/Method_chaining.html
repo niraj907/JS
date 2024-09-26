@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+       /* no Method chaining */
+/*
+let username = window.prompt("Enter your username: ");
+        username = username.trim();
+        console.log(`Character: ${username}`);
+        let letter = username.charAt(0);
+        console.log(letter);
+        letter = letter.toUpperCase();
+        let extraChars = username.slice(1);
+        console.log(extraChars);
+       extraChars = extraChars.toLowerCase();
+      username = letter + extraChars;
+      console.log(username); 
+      */
+
+     /* method chining */
+
+     let username = window.prompt("Enter your username: ");
+     username = username.trim().charAt(0).toUpperCase() + username.trim().slice(1).toLowerCase();
+     console.log(username);
+
+    </script>
+</body>
+</html>
+
+
+
+<!--
+ noted :-
+ Method chaining : Calling one method after in one continuous line of codde
+
+
+
+-->
+
+

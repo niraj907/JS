@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread Operator</title>
+</head>
+<body>
+    
+
+
+    <script>
+       /*
+function sum(name, ...args){
+  console.log(arguments);
+
+  console.log(`Hello: ${name}`);
+  let sum = 0;
+  for (let i in args){
+    sum = sum + args[i];
+  }
+  console.log(sum);
+}
+sum('niraj',10,20,30);
+*/
+
+/*
+
+function sum(name, ...args){
+    console.log(arguments);
+  
+    console.log(`Hello: ${name}`);
+    let sum = 0;
+    for (let i in args){
+      sum = sum + args[i];
+    }
+    console.log(sum);
+  }
+  var arr = [10,20,30];
+  sum('niraj',...arr);
+*/
+
+/*
+var arr = [10,20,30];
+console.log(...arr) 
+*/
+
+/*
+
+var arr1 = [10,20,30,40];
+var arr2 = [50,60];
+console.log('Concat') // both two variable join using  concat
+var arr3 = arr1.concat(arr2);
+console.log(arr3)
+
+console.log('')
+console.log('Spread Operator')
+var arr4 = [...arr1,...arr2]; // both two variable join using spread operator
+var arr5 = [55, ...arr1,...arr2 , 65]; // both two variable join using spread operator an we can add as well 
+console.log(arr4);
+console.log(arr5)
+
+
+*/
+
+/*
+let number = [1,2,3,4,5];
+let maximum = Math.min(...number);
+console.log(maximum)
+*/
+
+/*
+let username = 'Niraj Chaudhary';
+let letter = [...username].join('-');
+console.log(letter)
+
+console.log([...username]);
+*/
+
+
+/*
+let num =[1,2,3,4,6];
+console.log([...num,7])
+*/
+
+/*
+const food1 =['pizza','burger','hotdog']
+function openFridge(...foods){
+  console.log(foods);
+}
+openFridge(food1)
+*/
+
+/*
+const food1 ='pizza';
+const food2 = 'burger';
+const food3 = 'hotdog';
+function openFridge(...foods){
+  console.log(...foods);
+}
+
+function getFood(...foods){
+  return foods
+}
+openFridge(food1,food2,food3)
+console.log('')
+const foods = getFood(food1,food2,food3)
+console.log(foods)
+*/
+
+
+/*
+function sum(...number){
+  let result = 0;
+  for(let num of number){
+    result = result + num;
+  }
+  console.log(`Total Number: ${result}`);
+}
+sum(1,2,3,4,5,6,7,8,9,10,11,12,13,14);
+*/
+
+
+/*
+function average(...numbers){
+  let result =0;
+  let avg;
+  for (let num of numbers){
+result = result + num;
+  }
+  console.log(`Total Number: ${result}`);
+
+  avg = result/numbers.length ;
+  console.log(`Average Number: ${avg}`);
+}
+average(75,100,85,90,50);
+*/
+
+function combinesStrings(...strings){
+  return strings.join(' ');
+
+}
+const fullName = combinesStrings('niraj','nitesh','sudip','binay');
+console.log(`Student Name : \n ${fullName}`);
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
+<!-- 
+    Spread Operator :
+      Allow an iterable such as an array or string to be expanded into seperate elements 
+      (unpacks the element)
+-->

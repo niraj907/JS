@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow functios</title>
+</head>
+<body>
+    
+    <button id="btn"> Click Here</button>
+<div id="demo"></div>
+
+    <script>
+
+        const btn = document.getElementById('btn');
+        const demo = document.getElementById('demo');
+
+        btn.onclick = () => {
+
+            setTimeout(() => {
+                demo.innerHTML = 'Welcome to Nepal';
+                demo.style.color = 'orange';
+            }, 3000);
+      
+    setTimeout(()=>{
+        let mySum = (x,y)=>{
+            return x+y;
+        }
+        const sum =  mySum(3,5);
+        demo.innerHTML = sum;
+        demo.style.color = 'orange';
+    },2000);
+
+        };
+
+
+const myArrow = (name, age)=>{
+    console.log(`Hey ${name} \nI am ${age} years old`);
+}
+myArrow('niraj',21);
+
+
+
+const number = [1,2,3,4,5,6];
+const squNum = number.map((element)=>{
+   return Math.pow(element,2);
+})
+
+const cubeNum = number.map((element)=>{
+    return Math.pow(element,3);
+})
+
+const evenNum = number.filter((element)=>{
+    return element%2 ==0;
+})
+const oddNum = number.filter((element)=>{
+    return element % 2  !==0;
+})
+
+
+setTimeout(()=>{
+    console.log(squNum);
+    console.log(cubeNum);
+    console.log(evenNum);
+    console.log(oddNum);
+
+},3000);
+      
+
+
+     /*    method 1 code
+        const mycode = ()=> console.log('hello world');
+        mycode();
+
+        method 2 code 
+        const code= ()=>{
+            console.log('I love nepal');
+        }
+code();
+*/
+    </script>
+</body>
+</html>
+
+
+
+<!-- 
+    Arrow function : 
+
+It allow us to write shorter function syntax:
+
+(parameter) => code;
+-->

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="para"></div>
+    <div id="message"></div>
+
+    <script>
+        /* function declaration */
+        function sum(){
+           document.getElementById('para').innerHTML = `hello world`;
+        }
+
+
+        /*function expression*/
+        const hello = function(){
+            document.getElementById('para').innerHTML = `hello world`;  
+        }
+setTimeout(hello,3000);
+
+
+
+setTimeout(function(){
+    document.getElementById('message').innerHTML = `Welcome to Nepal`;    
+},5000);
+
+
+const number = [1,2,3,4,5,6];
+const squNum = number.map(function (element){
+    return Math.pow(element,2);
+});
+
+setTimeout(function(){
+    console.log(squNum);
+},3000);
+
+
+const evenNumber = number.filter(function(element){
+    return element % 2 ==0;
+});
+console.log(evenNumber);
+
+
+
+
+
+        </script>
+</body>
+</html>

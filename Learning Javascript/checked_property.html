@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="checkbox"  id="myCheckBox" name="check" >
+<label for="myCheckBox">subscribe</label>
+<br> <br>
+<input type="radio" id="myradio_box" name="check">
+<label for="myradio_box">Instagram</label>
+<br>
+<input type="radio" id="myfacebook_box" name="check">
+<label for="myfacebook_box">Facebook</label>
+<br>
+<input type="radio" id="mymessenger_box" name="check">
+<label for="mymessenger_box">messenger</label>
+<br> <br>
+<button id="btn">click</button>
+<p id="subResult"></p>
+<p id="socialMedia_Result"></p>
+
+<script>
+    var myCheckBox = document.getElementById("myCheckBox");
+    var myradio_box = document.getElementById('myradio_box');
+    var myfacebook_box = document.getElementById('myfacebook_box');
+    var mymessenger_box = document.getElementById('mymessenger_box');
+    var subResult = document.getElementById('subResult');
+    var socialMedia_Result = document.getElementById('socialMedia_Result');
+    btn.onclick = function(){
+        if(myCheckBox.checked){
+            subResult.innerHTML = "you are subscribed";
+    }else{
+        subResult.innerHTML = "you are not subscribed";
+    }
+    if(myradio_box.checked){
+        socialMedia_Result.textContent = "You are in instragram"; 
+    }else if(myfacebook_box.checked){
+        socialMedia_Result.textContent = "You are in facebook";
+
+    }else if(mymessenger_box.checked){
+        socialMedia_Result.textContent = "You are in messenger";
+    }else{
+        socialMedia_Result.textContent = "You are not in any social media";
+    }
+}
+</script>
+</body>
+</html>

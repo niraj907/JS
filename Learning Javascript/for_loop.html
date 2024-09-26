@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="text"></p>
+
+
+    <script>
+          /* var id;
+        for(let i=10; i> 0;i=i-1){
+             document.getElementById("text").innerHTML += `${i}<br>`;
+        }  */
+
+        /*
+let number = window.prompt("Enter the number between 1 to 20 : ") 
+
+        for(let i=1; i<=20;i++){
+            if(i == number){
+                continue;
+            }else{
+                document.getElementById("text").innerHTML += `${i}<br>`;
+            }
+           
+        }
+         */
+
+
+
+         let number = window.prompt("Enter the number between 1 to 20 : ") 
+
+        for(let i=1; i<=20;i++){
+            if(i == number){
+                break;
+            }else{
+                document.getElementById("text").innerHTML += `${i}<br>`;
+            }
+           
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Password Generator</title>
+</head>
+<body>
+
+    <div class="container">
+
+
+    <h1>Password Generator</h1>
+    <label for="passwordLength">Password Length:</label>
+    <input type="number" id="passwordLength" value="12"><br><br>
+
+    <label><input type="checkbox" id="includeLowercase" checked> Include Lowercase</label><br>
+    <label><input type="checkbox" id="includeUppercase" checked> Include Uppercase</label><br>
+    <label><input type="checkbox" id="includeNumbers" checked> Include Numbers</label><br>
+    <label><input type="checkbox" id="includeSymbols" checked> Include Symbols</label><br><br>
+
+    <button onclick="generateAndDisplayPassword()">Generate Password</button>
+
+    <p id="demo"></p>
+    <p id="message"></p>
+</div>
+
+</body>
+
+<script>
+    function generatePassword(passwordLength, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
+        const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+        const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const numbers = '0123456789';
+        const symbols = '!@#$%^&*()_+{}[]|;:,./<>?';
+
+        let allowedChars = ''; // to store allowedchars
+        let password = '';
+
+        allowedChars += includeLowercase ? lowercaseChars : '';
+        allowedChars += includeUppercase ? uppercaseChars : '';
+        allowedChars += includeNumbers ? numbers : '';
+        allowedChars += includeSymbols ? symbols : '';
+
+        if (passwordLength <= 0) {
+            document.getElementById('demo').innerHTML = 'Password length must be at least 1';
+            document.getElementById('demo').style.color = 'red';
+            return;
+        }
+        if (allowedChars.length === 0) {
+            document.getElementById('demo').innerHTML = 'At least selected one of lowercase, Uppercase, Number, Symbol';
+            document.getElementById('demo').style.color = 'red';
+            return;
+        }
+
+        for (let i = 0; i < passwordLength; i++) {
+            const randomIndex = Math.floor(Math.random() * allowedChars.length);
+            password += allowedChars[randomIndex];
+        }
+
+        let strengthMessage = '';
+        let messageColor = '';
+        if (passwordLength <= 6) {
+            strengthMessage = 'Your password is weak.';
+            messageColor = 'red';
+        } else if (passwordLength <= 9) {
+            strengthMessage = 'Your password is moderate.';
+            messageColor = 'orange';
+        } else {
+            strengthMessage = 'Your password is strong.';
+            messageColor = 'green';
+        }
+
+        document.getElementById('demo').innerHTML = `Generated Password: ${password}`;
+        document.getElementById('demo').style.color = 'black';
+        document.getElementById('message').innerHTML = strengthMessage;
+        document.getElementById('message').style.color = messageColor;
+
+        return password;
+    }
+
+    function generateAndDisplayPassword() {
+        const passwordLength = parseInt(document.getElementById('passwordLength').value);
+        const includeLowercase = document.getElementById('includeLowercase').checked;
+        const includeUppercase = document.getElementById('includeUppercase').checked;
+        const includeNumbers = document.getElementById('includeNumbers').checked;
+        const includeSymbols = document.getElementById('includeSymbols').checked;
+        
+        generatePassword(passwordLength, includeLowercase, includeUppercase, includeNumbers, includeSymbols);
+    }
+</script>
+</html>

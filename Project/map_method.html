@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <div id="para"></div>
+    <div id="cub"></div>
+<div id="studentDetail"></div>
+<div id="studentDetail_lower"></div>
+<div id="datesformat"></div>
+<script>
+    
+    const number = [4, 9, 16, 25];
+
+    document.getElementById('demo').innerHTML = "Original array:  " + number.join(', ');
+
+    const newArr = number.map(Math.sqrt);
+    document.getElementById('demo').innerHTML += " <br> Square roots: <br> " + newArr.join(', ');
+    demo.style.color = 'red';
+
+    function square(number){
+        return Math.pow(number,2);
+    }
+    const sqr= number.map(square);
+    document.getElementById('para').innerHTML += "Square Number: <br>" + sqr.join(', ');
+     
+    
+const cubeNum = number.map(cube);
+function cube(number){
+    return Math.pow(number,3)
+}
+document.getElementById('cub').innerHTML += "Cube Number: <br>" + cubeNum.join(', ');
+cub.style.color = 'green';  
+
+const students = ["Niraj","Nitesh","Mina","Chandra"];
+const studentsUpper = students.map(upperCase);
+document.getElementById('studentDetail').innerHTML += "Student Name: <br> " + studentsUpper.join(', ');
+
+function upperCase(element){
+    return element.toUpperCase();
+}
+
+
+const studentLower = students.map(lowercase);
+document.getElementById('studentDetail_lower').innerHTML += "Student Name: <br> " + studentLower.join(', ');
+studentDetail_lower.style.color = 'blue'; 
+
+function lowercase(element){
+    return element.toLowerCase();
+}
+
+
+const dates = ['2024-1-10','2025-2-20','2026-3-30'];
+const formattedDates = dates.map(formatDate);
+document.getElementById('datesformat').innerHTML += "Date Formate: <br> " + formattedDates.join(', ');
+datesformat.style.color = 'yellow'; 
+
+function formatDate(element){
+    const parts = element.split("-");
+    return `${parts[1]}/${parts[2]}/${parts[0]}`;
+}
+
+</script>
+
+
+</body>
+</html>

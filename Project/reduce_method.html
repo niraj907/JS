@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= 3, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="sumNum"></div>
+    <div id="maxiNum"></div>
+    <div id="miniNum"></div>
+
+    <script>
+        const price = [5,30,10,25,15,20];
+        const total = price.reduce(sum);
+        document.getElementById('sumNum').innerHTML = `Sum: $${total.toFixed(2)}`;
+
+        
+        function sum(pervious , next){
+            return pervious + next;
+        }
+
+        const grades = [70,50,90,80,65,95];
+        const maximum = grades.reduce(getMax);
+        document.getElementById('maxiNum').innerHTML = `Maximum Number: ${maximum}`;
+
+        function getMax(pervious,next){
+            return Math.max(pervious,next);
+        }
+
+
+        const miniNum = grades.reduce(getMini);
+        document.getElementById('miniNum').innerHTML = `Minimum Number: ${miniNum}`;
+
+        function getMini(pervious,next){
+            return Math.min(pervious,next);
+        }
+
+    </script>
+
+</body>
+</html>
+
+<!-- 
+    reduce() 
+= reduce the element of an array to a single value
+
+-->

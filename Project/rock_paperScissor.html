@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <style>
+      #games {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1 {
+        font-size: 2.6rem;
+        font-weight: bolder;
+        text-align: center;
+      }
+
+      #choices {
+        margin-top: 1.3rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      #choices button {
+        font-size: 7.5rem;
+        min-width: 160px;
+        margin: 0 10px;
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        transition: background-color o.5s ease;
+      }
+
+      #choices button:hover {
+        background-color: rgb(231, 231, 250);
+      }
+
+      #displays {
+        margin-top: 2rem;
+        text-align: center;
+      }
+
+      #player_display,
+      #computer_display {
+        font-size: 2.5rem;
+      }
+
+      #result_display {
+        font-size: 3.5rem;
+      }
+      #score{
+
+        margin-top: 2rem;
+      }
+
+      .sccore__display{
+        font-size: 2rem;
+      }
+   .greenText ,#player_score_display{
+    color: green;
+   }
+   .redText , #computer_score_display{
+    color: red;
+   }
+
+
+   /*   media queries for responsive design */
+
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        button {
+          font-size: 6rem;
+        }
+
+        #choices {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+        }
+
+        button {
+          margin: 10px 0;
+        }
+
+        #player_display,
+        #computer_display {
+          font-size: 2rem;
+        }
+
+        #result_display {
+          font-size: 2.8rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        button {
+          font-size: 5rem;
+        }
+
+        #choices {
+          flex-direction: column;
+        }
+
+        button {
+          margin: 5px 0;
+        }
+
+        #player_display,
+        #computer_display,
+        #result_display {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 380px) {
+        #choices {
+          flex-direction: column;
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        #paper {
+          margin-right: 0;
+        }
+
+        #scissors {
+          margin-top: 0;
+        }
+
+        #displays {
+          padding: 10px;
+        }
+
+        button {
+          font-size: 5rem;
+        }
+
+        #player_display,
+        #computer_display {
+          font-size: 1.5rem;
+        }
+
+        #result_display {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="games">
+      <h1>Rock - Paper - Scissors</h1>
+      <div id="choices">
+        <button onclick="playGame('rock')">👊</button>
+        <button onclick="playGame('paper')" id="paper">✋</button>
+        <button onclick="playGame('scissors')" id="scissors">✂️</button>
+      </div>
+
+      <div id="displays">
+        <div id="player_display">PLAYER :</div>
+        <div id="computer_display">COMPUTER :</div>
+        <div id="result_display"></div>
+      </div>
+
+<div id="score">
+  <div class="sccore__display">
+    Player Score: <span id="player_score_display">0</span>
+  </div>
+  <div class="sccore__display">
+    Computer Score: <span id="computer_score_display">0</span>
+  </div>
+
+</div>
+
+
+    </div>
+
+    <script>
+      const choices = ["rock", "paper", "scissors"];
+      const player_display = document.getElementById("player_display");
+      const computer_display = document.getElementById("computer_display");
+      const result_display = document.getElementById("result_display");
+const player_score_display = document.getElementById("player_score_display");
+const computer_score_display = document.getElementById("computer_score_display");
+
+let playerScore = 0;
+let computerScore = 0;
+
+      function playGame(playerChoice) {
+        const computerChoice = choices[Math.floor(Math.random() * 3)];
+        let result = "";
+
+        if (playerChoice === computerChoice) {
+          result = `IT'S A TIE! 😄`;
+        } else if (
+          (playerChoice === "rock" && computerChoice === "scissors") ||
+          (playerChoice === "scissors" && computerChoice === "paper") ||
+          (playerChoice === "paper" && computerChoice === "rock")
+        ) {
+          result = `YOU WIN! 🥳`;
+          
+        } else {
+          result = `YOU LOSE! 😥`;
+        }
+
+        player_display.textContent = `PLAYER : ${playerChoice}`;
+        computer_display.textContent = `COMPUTER : ${computerChoice}`;
+        result_display.textContent = result;
+
+
+        result_display.classList.remove('greenText','redText');
+  
+        switch(result) {
+          case 'YOU WIN! 🥳':
+          result_display.classList.add('greenText');
+          playerScore ++;
+         player_score_display.textContent = playerScore;
+          break;
+          case `YOU LOSE! 😥`: 
+          result_display.classList.add('redText');
+          computerScore ++;
+          computer_score_display.textContent = computerScore;
+        }
+
+      }
+
+
+    </script>
+  </body>
+</html>

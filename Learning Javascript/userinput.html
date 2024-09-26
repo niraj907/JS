@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="myH1">Fill Form</h1>
+<!-- <p id="cir"></p> -->
+    <label for="FirstName">FirstName</label>
+    <input type="text" id="first" placeholder="Enter a firstname">
+<br> <br>
+    <!-- <label for="LastName">LastName</label>
+    <input type="text" id="last" placeholder="Enter a lastname">
+    <br> <br> -->
+    <button id="mySubmit"> Submit</button>
+
+    <script>
+        let FirstName , LastName; // Variable 
+
+document.getElementById("mySubmit").onclick =function(){
+let FirstName = document.getElementById("first").value;
+/*let LastName = document.getElementById("last").value;*/
+document.getElementById("myH1").textContent = `UserName: ${FirstName}`;
+
+/*console.log(FirstName);*/
+/*console.log(LastName);*/
+}
+
+/*example 1 */
+/*let age = window.prompt("How old are you?");
+age = Number(age);
+age+=1;
+console.log(age);
+let data = typeof(age);
+console.log(`Data type of age: ${data}`);*/
+
+
+/* example 2
+let x = "";
+let y = "";
+let z = "";
+
+x = Number(x);
+y = String(y);
+z =Boolean(z);
+console.log(x ,typeof x);
+console.log(y ,typeof y);
+console.log(z,typeof z);*/
+
+
+/*
+const pi = 3.14;
+let radius;
+let circumference;
+radius = window.prompt("Enter the radius of a circle ");
+radius=Number(radius);
+circumference = 2* pi*radius;
+document.getElementById("cir").innerHTML = ` Circumference: ${circumference}`;
+*/
+    </script>
+</body>
+</html>

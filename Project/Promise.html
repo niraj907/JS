@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    
+
+
+    <script>
+
+        /*
+        const myPromise = new Promise((resolve , reject)=>{
+        console.log('Calcualate the value , please wait...');
+const a = 5 ,  b = 6;
+const c = a + b;
+
+if(c === 4){
+resolve(`It has been complete ${a} ${b}`);
+alert(`completed`);
+}else{
+reject(`It has been rejected ${a} ${b}`);
+alert(`rejected`);
+}
+        });
+        
+        myPromise.then((m)=>{
+            console.log(m) ;
+        }).catch((e)=>{
+            console.log(e) ;
+        });
+
+*/
+
+
+/*
+
+        let complete = false;
+        let prom = new Promise((resolve,reject)=>{
+            console.log('fetching data , please wait...'); // pending message
+           setTimeout(()=>{
+               if(complete){
+                   resolve('It has been complete');
+               }else{
+   reject('It has been rejected');
+               }
+
+           },3000)
+
+        });
+
+        console.log(prom);
+
+
+        // method change
+        prom.then((e)=>{
+            console.log(e);
+        }).catch((m)=>{
+            console.log(m);
+        })
+
+
+        */
+
+
+
+
+        let prom = new Promise((resolve,reject)=>{
+            console.log('fetching data , please wait...'); // pending message
+           setTimeout(()=>{
+              $.get(`https://jsonplaceholder.typicode.com/posts`,function(data){
+            resolve(data[0]);
+              }).fail(e=>{
+                reject('Fail to load JSON data');
+              })
+
+           },3000)
+
+        });
+
+        console.log(prom);
+
+
+        // method change
+        prom.then((e)=>{
+            console.log(e);
+        }).catch((m)=>{
+            console.log(m);
+        })
+
+
+
+
+    </script>
+</body>
+</html>

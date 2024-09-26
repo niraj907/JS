@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div id="evenNumber"></div>
+<div id="oddNumber"></div>
+<div id="adults"></div>
+<div id="childs"></div>
+<div id="words"></div>
+<div id="longWords"></div>
+<body>
+    
+    <script>
+        let numbers = [1,2,3,4,5,6,7,8,9];
+
+        /* Even Number */
+        let evenNums = numbers.filter(isEven);
+        document.getElementById('evenNumber').innerHTML = `Even number: ${`<br>`} ${evenNums}`;
+        
+        function isEven(element){
+            return element % 2 == 0;
+        }
+          
+            /* Odd Number */
+        let oddNums = numbers.filter(isOdd);
+        document.getElementById('oddNumber').innerHTML = `Odd number: ${`<br>`} ${oddNums}`;
+
+        function isOdd(element){
+            return element % 2 == 1; 
+        }
+
+          
+        const ages = [16,17,18,18,19,20,60];
+
+          /* Adults Number */
+        const adult = ages.filter(isadults);
+        document.getElementById('adults').innerHTML = `Adults: ${`<br>`} ${adult}`;
+
+        function isadults(element){
+            return element >= 18;
+        }
+
+          /* Child Number */
+        const child = ages.filter(isChilds);
+        document.getElementById('childs').innerHTML = `Child: ${`<br>`} ${child}`;
+
+        function isChilds(element){
+            return element < 18;
+        }
+
+
+        const words = ['apple','ornage','banana','kiwi','pomegranate','coconut'];
+
+          /* Short words */
+        const newWords = words.filter(getShortWords);
+        document.getElementById('words').innerHTML = `New Words: ${`<br>`} ${newWords}`;
+        
+        function getShortWords(element){
+            return element.length <= 6;
+        }
+        
+          /* Long word */
+        const lowgWord = words.filter(getLongWord);
+        document.getElementById('longWords').innerHTML = `New Words: ${`<br>`} ${lowgWord}`;
+
+        function getLongWord(element){
+            return element.length > 6;
+        }
+        
+    </script>
+</body>
+</html>

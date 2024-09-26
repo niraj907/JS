@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch</title>
+    <style>
+      #myform {
+        width: 400px;
+        margin: 40px auto;
+      }
+
+      #myform label {
+        font-size: 2rem;
+      }
+      #myform input {
+        width: 390px;
+        height: 30px;
+        font-size: 1.8rem;
+      }
+      #saveForm {
+        font-size: 2rem;
+        background-color: white;
+        border-radius: 5px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      /* Responsive styling */
+      @media screen and (max-width: 600px) {
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+          display: block;
+        }
+        th {
+          position: absolute;
+          top: -9999px;
+          left: -9999px;
+        }
+        tr {
+          border: 1px solid #ccc;
+          margin-bottom: 5px;
+        }
+        td {
+          border: none;
+          border-bottom: 1px solid #eee;
+          position: relative;
+          padding-left: 50%;
+          text-align: right;
+        }
+        td:before {
+          position: absolute;
+          top: 6px;
+          left: 6px;
+          width: 45%;
+          padding-right: 10px;
+          white-space: nowrap;
+          content: attr(data-label);
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+   
+    
+    <form action="" id="myform">
+      <label for="name">Name</label> <br />
+      <input type="text" id="name" required /> <br /><br />
+      
+      <label for="username">Username</label> <br />
+      <input type="text" id="username" required /> <br /><br />
+      
+      <label for="email">Email</label> <br />
+      <input type="text" id="email" required /> <br /><br />
+      
+      <label for="address">Address</label> <br />
+      <input type="text" id="address" required /> <br /><br />
+      
+      <label for="city">City</label> <br />
+      <input type="text" id="city" required /> <br /><br />
+      
+      <button type="submit" id="saveForm">Submit</button>
+    </form>
+    
+    <div id="demo"></div>
+    <script>
+      // example no 1
+      /*
+      const demo = document.getElementById("demo");
+      fetch("https://jsonplaceholder.typicode.com/users",{
+
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (result) {
+          var content = "<table>";
+          content += "<tr><th>Id</th><th>Name</th><th>Username</th><th>Email</th><th>Address</th></tr>";
+          
+          result.forEach(function (user) {
+            content += `<tr>`;
+            content += `<td data-label="Id">${user.id}</td>`;
+            content += `<td data-label="Name">${user.name}</td>`;
+            content += `<td data-label="Username">${user.username}</td>`;
+            content += `<td data-label="Email">${user.email}</td>`;
+            content += `<td data-label="Address">${user.address.city}</td>`;
+            content += `</tr>`;
+          });
+          
+          content += "</table>";
+          demo.innerHTML = content; // Update the content of the div with the table
+        })
+        .catch(function (error) {
+          demo.innerHTML = `Can't fetch the data: ${error}`;
+        });
+
+        */
+
+      // Example no 2
+      /*
+        const demo = document.getElementById("demo");
+
+        fetch("https://jsonplaceholder.typicode.com/users", {
+          method: 'POST',
+          body: JSON.stringify({
+            name: 'Niraj Chaudhay',
+            username: 'niru',
+            email: 'niru@gmail.com',
+            address: {
+              city: 'Kupondole'
+            }
+          }),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        })
+        .then(function (response) {
+            return response.json();
+          })
+          .then(function (result) {
+            console.log(result);
+            // Assuming result is an array of users, but for POST it won't return new user
+            var content = "<table>";
+            content += "<tr><th>Id</th><th>Name</th><th>Username</th><th>Email</th><th>Address</th></tr>";
+        
+            // Displaying the first user (assuming it doesn't actually add a new user)
+            content += `<tr>`;
+            content += `<td data-label="Id">${result.id}</td>`;
+            content += `<td data-label="Name">${result.name}</td>`;
+            content += `<td data-label="Username">${result.username}</td>`;
+            content += `<td data-label="Email">${result.email}</td>`;
+            content += `<td data-label="Address">${result.address.city}</td>`; // Adjust this according to the API response
+            content += `</tr>`;
+        
+            content += "</table>";
+            demo.innerHTML = content; // Update the content of the div with the table
+          })
+          .catch(function (error) {
+            demo.innerHTML = `Can't fetch the data: ${error}`;
+          });
+        */
+
+      // Example no 3
+/*
+
+const saveForm = document.getElementById("saveForm");
+
+saveForm.addEventListener("click", (e) => {
+  e.preventDefault();
+  const demo = document.getElementById("demo");
+
+  fetch("https://jsonplaceholder.typicode.com/users", {
+    method: "POST",
+    body: JSON.stringify({
+      name: document.getElementById("name").value,
+      username: document.getElementById("username").value,
+      email: document.getElementById("email").value,
+      address: {
+        city: document.getElementById("city").value,
+      },
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+
+      // Creating a table to display the result
+      var content = "<table>";
+      content += "<tr><th>Id</th><th>Name</th><th>Username</th><th>Email</th><th>Address</th></tr>";
+      
+      // Assuming result contains the created user
+      content += `<tr>`;
+      content += `<td data-label="Id">${result.id}</td>`;
+      content += `<td data-label="Name">${result.name}</td>`;
+      content += `<td data-label="Username">${result.username}</td>`;
+      content += `<td data-label="Email">${result.email}</td>`;
+      content += `<td data-label="Address">${result.address.city}</td>`; // Adjust this according to the API response
+      content += `</tr>`;
+      
+      content += "</table>";
+      demo.innerHTML = content; // Update the content of the div with the table
+    })
+    .catch((error) => {
+      demo.innerHTML = `Can't fetch the data: ${error}`;
+    });
+});
+
+*/
+
+// using append function
+
+// we can use these as well
+/*
+if(window.fetch){
+
+
+}else{
+
+}
+*/
+
+const saveForm = document.getElementById("saveForm");
+
+        saveForm.addEventListener("click", (e) => {
+            e.preventDefault();
+            const demo = document.getElementById("demo");
+
+            fetch("https://jsonplaceholder.typicode.com/users", {
+                method: "POST",
+                body: JSON.stringify({
+                    name: document.getElementById("name").value,
+                    username: document.getElementById("username").value,
+                    email: document.getElementById("email").value,
+                    address: {
+                        city: document.getElementById("city").value,
+                    },
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                },
+            })
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result);
+
+                // Check if the table exists
+                let table = document.querySelector("#demo table");
+                if (!table) {
+                    table = document.createElement("table");
+                    table.innerHTML = "<tr><th>Id</th><th>Name</th><th>Username</th><th>Email</th><th>City</th></tr>";
+                    demo.appendChild(table);
+                }
+
+                // Append a new row to the table
+                const row = table.insertRow();
+                row.innerHTML = `<td>${result.id}</td>
+                                 <td>${result.name}</td>
+                                 <td>${result.username}</td>
+                                 <td>${result.email}</td>
+                                 <td>${result.address.city}</td>`;
+            })
+            .catch((error) => {
+                demo.innerHTML = `Can't fetch the data: ${error}`;
+            });
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+
+/*  Example no 1 */
+
+    /*
+const student = {
+    firstName : 'Niraj',
+    lastname : 'Chaudhary' ,
+    get getName(){
+        return `${this.firstName} ${this.lastname}`;
+    }
+};
+console.log(student.firstName); // accessing data property
+console.log(student.lastname); // accessing data property
+console.log(student.getName); // accessing get method 
+console.log(student.getName());// error trying to access as a method
+
+*/
+
+
+/*  Example no 2 */
+
+const student1 = {
+    firstName: 'Niraj',
+    lastname: 'Chaudhary',
+    set setName(newName) { // when we use set method we need one parameter
+        this.message = newName;
+    }
+};
+
+console.log(student1.firstName); // accessing data property
+console.log(student1.lastname); // accessing data property
+
+// Using the setter to update the first name
+const mess = student1.setName = 'Hello everyOne';
+console.log(mess)
+
+/*
+console.log(student1.setName) // we cannot use these way
+*/
+
+
+/*  Example no 3 */
+const user = {
+firstname : 'Nitesh',
+lastname : 'Chaudhary',
+fullname : function(){
+    return `${this.firstname} ${this.lastname}`;
+}
+}
+console.log(`${user.firstname}`);
+console.log(user.fullname()); 
+
+
+
+/*  Example no 4 */
+class Rectangle{
+    constructor (width1,height1){
+this.width = width1;
+this.height = height1;
+    }
+    set width(newWidth){
+if(newWidth > 0){
+    this.widthNew = newWidth; // primituive property
+}
+else{
+    console.error('Width must be a postive number');
+}
+    }
+
+    set height(newHeight){
+if(newHeight > 0){
+    this.heightNew = newHeight; // primituive property
+}
+else{
+    console.error('heigth must be a postive number');
+}
+    }
+
+
+    get width(){
+      return this.widthNew.toFixed(1);  
+    }
+    get height(){
+        return this.heightNew;
+    }
+
+    get area(){
+        return this.widthNew * this.heightNew;
+    }
+}
+const rectangle = new Rectangle(4,6);
+console.log(rectangle.width);
+console.log(rectangle.height);
+console.log(rectangle.area)
+
+
+
+/*  Example no 5 */
+
+class Person {
+    constructor(firstName1, lastName1, age1){
+        this.firstName = firstName1;
+        this.lastName = lastName1;
+        this.age = age1;
+    }
+
+    set firstName(newFirstName){
+        if (typeof newFirstName === 'string' && newFirstName.length > 0){
+            this._firstName = newFirstName; // private firstName
+        } else {
+            console.error('First name must be a non-empty string');
+        }
+    }
+
+    set lastName(newLastName){
+        if (typeof newLastName === 'string' && newLastName.length > 0){
+            this._lastName = newLastName; // private lastName
+        } else {
+            console.error('Last name must be a non-empty string');
+        }
+    }
+
+    set age(newAge){
+        if (typeof newAge === 'number' && newAge > 0){
+            this._ageNum = newAge; // private age
+        } else {
+            console.error('Age must be a positive number');
+        }
+    }
+
+    get firstName(){
+        return this._firstName;
+    }
+
+    get lastName(){
+        return this._lastName;
+    }
+
+    get age(){
+        return this._ageNum;
+    }
+
+    get fullname(){
+      return `My name is ${this._firstName} ${this._lastName} . An I'm ${this._ageNum} years old. `  
+    }
+}
+
+const person = new Person('Mina', 'chaudhary', 45);
+
+console.log(person.firstName); // Output: niraj
+console.log(person.lastName);  // Output: chaudhary
+console.log(person.age);       // Output: 1
+console.log(person.fullname)
+
+
+</script>
+
+
+</body>
+</html>
+
+ <!-- 
+
+#######    Notes #######
+
+    Getter and Setter 
+
+    -> In JavaScript, there are two kinds of object properties:
+
+-> Data properties
+
+example 1 : 
+const student = { // student object
+
+    // data property
+    firstName: 'Monica';
+};
+
+
+-> Accessor properties
+
+In JavaScript, accessor properties are methods that get or set the value of an object. For that, we use these two keywords:
+
+-> get - to define a getter method to get the property value 
+        -  special method that makes a property readable
+
+        
+-> set - to define a setter method to set the property value
+        - special method that make a property writeable 
+
+-->

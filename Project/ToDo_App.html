@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do APP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: rgb(4,29,29); 
+            font-family: Arial, Helvetica, sans-serif;  
+        }
+        .todo__app-tittle {
+            margin: 0;
+            font-size: 3.5rem;
+        }
+        .todo__app {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 2px solid black;
+            padding: 3rem;
+            background-color: rgb(255, 255, 255);
+            width: 350px;
+            margin: 30px auto;
+        }
+        .container {
+            margin-top: 15px;
+            padding: 5px;
+        }
+        .container input {
+            padding: 10px;
+            width: 250px;
+            font-size: 16px;
+        }
+        .container input:hover {
+            border: 2px solid  rgb(4,29,29);
+            border-radius: 5px;
+        }
+        .container button {
+            padding: 10px;
+            margin-left: 13px;
+            font-size: 2rem;
+            font-weight: bold;
+            background-color: rgb(4,29,29);
+            clip-path: circle();
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .add__text {
+            text-align: left;
+            width: 98%;
+        }
+        .add__text ul {
+            position: relative;
+            background-color: rgb(4,29,35);
+            padding: 0.5rem 1rem;
+            color: white;
+            font-size: 20px;
+            margin: 5px 0;
+            list-style-type: none;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .add__text ul i {
+            cursor: pointer;
+            padding-left: 10px;
+            color: white;
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+    <div class="todo__app">
+        <h1 class="todo__app-tittle">ToDo app</h1>
+        <div class="container">
+            <input type="text" id="input" placeholder="Add new task">
+            <button id="btn" onclick="Add()"> 
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+        <div class="add__text"></div>
+    </div>
+    <script>
+        const input = document.getElementById('input');
+        const addText = document.querySelector('.add__text');
+        let editElement = null; // Variable to store the element being edited
+
+        function Add() {
+            if(input.value === "") {
+                alert("Please enter a task");
+            } else {
+                if (editElement) {
+                    // If editElement is set, update its text content
+                    editElement.querySelector('span').textContent = input.value;
+                    alert('Task updated');
+                    editElement = null; // Reset editElement
+                } else {
+                    // Create a new task
+                    let newEle = document.createElement('ul');
+                    newEle.innerHTML = `
+                        <span>${input.value}</span>
+                        <div>
+                            <i class="fa-solid fa-pen-nib"></i>
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+                    `;
+                    addText.appendChild(newEle);
+                    alert('Successfully added');
+
+                    // Add event listeners for the icons
+                    newEle.querySelector('.fa-trash').addEventListener('click', function() {
+                        newEle.remove();
+                        alert('Successfully deleted');
+                    });
+
+                    newEle.querySelector('.fa-pen-nib').addEventListener('click', function() {
+                        input.value = newEle.querySelector('span').textContent;
+                        editElement = newEle; // Set the element being edited
+                    });
+                }
+                input.value = ""; // Clear the input field
+            }
+        }
+    </script>
+</body>
+</html>

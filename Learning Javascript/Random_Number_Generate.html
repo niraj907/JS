@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANDOM NUMBER GENERATOR</title>
+</head>
+<style>
+    body{  
+        text-align: center;
+    }
+    #sqr_box{
+        position: absolute;
+        left:37%;
+    }
+    
+</style>
+<body>
+    <div id="radom">
+        <h1>Random Number Generate</h1>
+        <button id="btn" style="background-color: white; color:rgb(255, 98, 0); border: 2px solid rgb(253, 148, 0); font-size:1.5rem;">Click</button>
+        <div id="sqr_box" style="width:15em; height:3em;border:2px solid black; margin-top:15px;font-size:1.5rem;"></div>
+    </div>
+        <script> 
+     const btn = document.getElementById('btn');
+        const sqr_box = document.getElementById('sqr_box');
+        btn.onclick = function() {
+            sqr_box.innerHTML = Math.round(Math.random()*1000)+1;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    let a,b,rest;
+    [a,b] = [10,20];
+    console.log(a);
+    console.log(typeof a);
+    console.log(b);
+
+    [a,b, ...rest] = [10,20,30,40,50];
+    console.log(rest)
+
+
+    /* Swap the value to two variable*/ 
+
+    let num1 = 5;
+    let num2 = 10;
+    [num1,num2] = [num2,num1]
+    console.log(`Num1: ${num1}`);
+    console.log(`Num2: ${num2}`);
+
+
+    // Swap 2 elemet in an array
+
+    const colors = ['red','white','green','blue','yellow'];
+
+    [colors[0],colors[4]] = [colors[4],colors[0]];
+
+console.log(colors);
+
+// Assign array elements to variable
+
+const color = ['red','white','green','blue','yellow'];
+const [firstColor ,secondColor,thirdColor, ...extraColor ] = color;
+
+console.log(`firstColor:  ${firstColor}`);
+console.log(`secondColor : ${secondColor}`);
+
+console.log(extraColor[0])
+
+
+//extract values from objects
+
+const person1 = { // object definition an person1
+    firstName : 'Niraj', // firstname is a properties
+    lastName : 'Chaudhary',
+    age : 30,
+    job : 'Web developer'
+}
+
+const person2 = { // object definition an person2
+    firstName : 'Nitesh',
+    lastName : 'Chaudhary',
+    age : 35,
+
+}
+// Destructuring assignment
+const {firstName,lastName,age,job='employee'} = person2; // assigned to new variables with the same names
+console.log(firstName)
+console.log(lastName)
+console.log(age)
+console.log(job)
+
+
+
+// destructure in function parameter
+
+function  displayPerson( {firstName,middleName,lastName,age,job='web developer'}){
+    console.log(`name: ${firstName} ${middleName} ${lastName}`)
+console.log(`age : ${age}`);
+console.log(`job: ${job}`)
+}
+
+const person3 = { // object definition an person1
+    firstName : 'Chandra', // firstname is a properties
+    middleName : 'Sheakhar',
+    lastName : 'Chaudhary',
+    age : 30,
+    job : 'Web developer'
+}
+
+const person4 = { // object definition an person2
+    firstName : 'Nitesh',
+    lastName : 'Chaudhary',
+    age : 35,
+
+}
+
+
+displayPerson(person4);
+ </script>
+
+</body>
+</html>
+
+<!-- 
+destructing : 
+- extract values from arrays and objects, then assigns them
+to variable in a convenient way
+- [] => to perform array destructuring
+- {} = to perform object destructing 
+
+
+
+-->

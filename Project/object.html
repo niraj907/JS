@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    
+    <div id="demo"></div>
+    <div id="para"></div>
+    <div id="salary"></div>
+    <div id="full_name"></div>
+    <div id="livingNew"></div>
+<div id="myaddress"></div>
+
+
+<script>
+    var studentDetail = { // studentDetails object
+    fname : 'Niraj', // fname is a properties and niraj is value
+    lname : 'Chaudhary',
+    age : 20,
+    email : 'Niraj@gmail.com',
+    favMovie : ['Dhoom','Sholay','Hum'], // array 
+    
+    living : { // another livig object 
+'city' : 'Kathmandu',
+'country':'Nepal'
+    },
+
+    salary : function(){ // method salary
+                return 2500;
+    },
+    fullName : function(){ // function
+        return this.fname + " " + this.lname;
+    },
+
+    address : function(){ // function
+        return this.living.city + "," + this.living.country;
+    }
+
+}
+
+const demo = document.getElementById('demo');
+demo.innerHTML = `My name is ${studentDetail.fname} ${studentDetail.lname}`;
+
+const para = document.getElementById('para');
+para.innerHTML = studentDetail.favMovie[0]; // array
+
+const salary = document.getElementById('salary');
+salary.innerHTML = studentDetail.salary(); // function call
+
+const full_name =document.getElementById('full_name');
+full_name.innerHTML = studentDetail.fullName(); // function call
+
+const livingNew = document.getElementById('livingNew');
+livingNew.innerHTML = studentDetail.living.city; // object 
+
+const myaddress = document.getElementById('myaddress');
+myaddress.innerHTML = studentDetail.address(); // function call
+
+
+
+var person = new Object(); // create object
+person.firstName = 'Ram';
+person.lastname = 'kumar';
+person.age = 25;
+
+const demo = document.getElementById('demo');
+demo.innerHTML = person.age; // object attributes
+
+
+</script>
+</body>
+</html>
+
+
+
+<!-- 
+this = reference to the object where THIS is used . 
+
+this arrow function we cannot used.
+ -->

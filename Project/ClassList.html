@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    
+    #myh1{
+        font-size: 2rem;
+
+    }
+
+    #mybtn{
+        font-size: 3rem;
+        margin: 10px;
+        border-radius: 10px;
+        padding:10px 15px;
+        background-color: orange !important;;
+    }
+
+    .enabled{
+        background-color: orange !important;
+        color: white !important;
+    }
+    .hover{
+        box-shadow: 0 0 10px gray !important;
+        font-weight: bolder !important;
+    }
+
+    .disabled{
+        background-color: rgb(140, 140, 140);
+        color: rgb(255, 255, 255);
+    }
+
+    
+
+    /*
+    .mybtn {
+      font-size: 3rem;
+      margin: 10px;
+      border-radius: 10px;
+      padding: 10px 15px;
+    }
+
+    .enabled {
+      background-color: orange !important;
+      color: white !important;
+    }
+    .hover {
+      box-shadow: 0 0 10px gray !important;
+      font-weight: bolder !important;
+    }
+
+    .disabled {
+      background-color: rgb(140, 140, 140);
+      color: rgb(255, 255, 255);
+    }
+*/
+
+
+  </style>
+  <body>
+     <h1 id="myh1">hello</h1>
+<button id="mybtn">My Button</button> 
+
+
+    <!-- <button class="mybtn">Button 1</button>
+    <button class="mybtn">Button 2</button>
+    <button class="mybtn">Button 3</button>
+    <button class="mybtn">Button 4</button> -->
+
+    <script>
+      //const mybtn = document.getElementById("mybtn");
+        //mybtn.classList.add("enabled");
+       //mybtn.classList.remove("enabled");
+
+      //mybtn.classList.add('hover');
+
+      /*
+mybtn.addEventListener('mouseover',event =>{
+event.target.classList.add("hover"); //event.target.classList.toggle("hover");   we can used these as well.
+})
+mybtn.addEventListener('mouseout',event =>{
+event.target.classList.remove("hover");//event.target.classList.toggle("hover");  we can used these as well.
+})
+*/
+
+      
+mybtn.classList.add("enabled");
+
+mybtn.addEventListener('click',event =>{
+    
+if(event.target.classList.contains("disabled")){
+    event.target.textContent += `😈`;
+event.target.style.cursor = 'pointer';
+console.log(`1: ${event.target.classList}`); // check which will execute first
+}
+event.target.classList.replace("enabled","disabled");
+console.log(`2: ${event.target.classList}`);// check which will execute first
+});
+
+
+      
+/*
+const myh1 = document.getElementById("myh1");
+myh1.classList.add('enabled');
+
+myh1.addEventListener('click',event =>{
+    
+    if(event.target.classList.contains("disabled")){
+        event.target.textContent += `😈`;
+        event.target.style.cursor = 'pointer';
+    
+    }
+    event.target.classList.replace("enabled","disabled");
+    
+    });
+    
+  */
+
+
+
+    /*
+
+      let button = document.querySelectorAll(".mybtn");
+      button.forEach((element) => {
+        element.classList.add("enabled");
+      });
+
+      button.forEach((element) => {
+        element.addEventListener("mouseover", (event) => {
+          event.target.classList.add("hover");
+        });
+      });
+      button.forEach((element) => {
+        element.addEventListener("mouseout", (event) => {
+          event.target.classList.remove("hover"); //event.target.classList
+        });
+      });
+
+      button.forEach((element) => {
+        element.addEventListener("click", event => {
+            if (event.target.classList.contains("disabled")) {
+            event.target.textContent += `👍`;
+            console.log(`1: ${event.target.classList}`); // check which will execute first
+          } else {
+            event.target.classList.replace("enabled", "disabled");
+            console.log(`2: ${event.target.classList}`); // check which will execute first
+          }
+        });
+      });
+
+      */
+    </script>
+  </body>
+</html>
+
+<!-- 
+Notes:
+
+classList :
+            Element property in JavaScript used to interact
+            with an element's list of classes (CSS classes)
+            Allowed you to make reusable classes for many elements
+            across your webpages
+
+            
+(1) add()
+(2) remove()
+(3) toggle(Remove if present , Add if not)
+(4) replace(oldClass, newClass)
+(5) contains
+
+-->

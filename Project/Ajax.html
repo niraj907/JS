@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajay</title>
+  </head>
+  <body>
+    <p id="demo">Here we load data.</p>
+    <button onclick="loadData()">Click</button>
+
+    <script>
+      function loadData() {
+        var demo = document.getElementById("demo");
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            var posts = JSON.parse(this.responseText);
+            var content = "";
+            posts.forEach(function(post) {
+               // if (post.id <= 10 && post.id % 2 !== 0) {   // using the code we can print the old data only 0 to 10
+              content += `<p style="color:red;> Id : ${post.id}</p>`;
+              content += `<p> Tittle : ${post.title}</p>`;
+              content += `<p> Body : ${post.body}</p>`;
+           // }
+            });
+            demo.innerHTML = content; // Update the content of the paragraph with the response
+          } else if (this.readyState == 4 && this.status == 404) {
+            console.error("Resource not found");
+            demo.textContent = "Resource not found";
+            demo.style.color = "red";
+          }
+        };
+        xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+        xhttp.send();
+      }
+    </script>
+  </body>
+</html>
